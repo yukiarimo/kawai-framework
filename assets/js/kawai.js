@@ -15,8 +15,6 @@ function SideBarSwitch() {
     }
 }
 
-
-
 function SideDisabler() {
     localStorage.setItem('sideid', 'sidebar');
     document.getElementById(localStorage.getItem('sideid')).style = "display: none";
@@ -144,18 +142,18 @@ function ThemeSwitch() {
     }
 }
 
-document.getElementsByClassName('block-mode-e')[0].innerHTML = `
+document.getElementsByClassName('toggle-switch-block')[0].innerHTML = `
 <label class="switch" onclick="ThemeSwitch()">
   <input type="checkbox">
   <span class="slider round"></span>
 </label>`;
 
-document.getElementsByClassName('toggle-block')[0].innerHTML = `
+document.getElementsByClassName('toggle-menu-block')[0].innerHTML = `
 <span class="bar"></span>
 <span class="bar"></span>
 <span class="bar"></span>`;
 
-const toggleButton = document.getElementsByClassName('toggle-block')[0]
+const toggleButton = document.getElementsByClassName('toggle-menu-block')[0]
 const navbarLinks = document.getElementsByClassName('top-tab-block')[0]
 
 toggleButton.addEventListener('click', () => {

@@ -225,7 +225,7 @@
 }
 
 /*  OTHER   */
-.toggle-block {
+.toggle-menu-block {
     position: absolute;
     flex-direction: column;
     justify-content: space-between;
@@ -236,7 +236,7 @@
     height: 21px;
 }
 
-.toggle-block .bar {
+.toggle-menu-block .bar {
     height: 3px;
     width: 100%;
     background-color: white;
@@ -371,7 +371,7 @@
     border-radius: 6px;
 }
 
-.toggle-block .bar {
+.toggle-menu-block .bar {
     height: 3px;
     width: 100%;
     background-color: white;
@@ -515,7 +515,7 @@
         align-items: flex-start;
     }
 
-    .toggle-block {
+    .toggle-menu-block {
         display: flex;
     }
 
