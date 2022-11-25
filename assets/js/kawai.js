@@ -1,10 +1,25 @@
 "use strict"
 
+/*
+    COPYRIGHT BY YUKI ARIMO
+    KAWAI FRAMEWORK
+*/
+
+// Variables and sub-processes
 let getsideid = 'sidebar'
 let checkSide = localStorage.getItem('side');
+const toggleButton = document.getElementsByClassName('toggle-menu-block')[0]
+const navbarLinks = document.getElementsByClassName('top-tab-block')[0]
+const addclosers = document.querySelectorAll('.block-popup');
 if (checkSide == '1') {
     SideDisabler();
 }
+let checkMode = localStorage.getItem('mode');
+if (checkMode == '1') {
+    DarkEnabler();
+}
+
+// Functions
 function SideBarSwitch() {
     if (checkSide == 0) {
         SideDisabler('sidebar');
@@ -81,7 +96,6 @@ function OpenTab(gettab) {
     document.getElementById(gettab).style.display = 'flex';
 }
 
-// DARK MODE
 function DarkEnabler() {
     document.getElementsByTagName('body')[0].style = "background-color: rgb(30, 30, 30)";
     document.getElementsByClassName('topbar-o')[0].style = "color: white";
@@ -126,11 +140,6 @@ function DarkEnabler() {
     }
 }
 
-let checkMode = localStorage.getItem('mode');
-if (checkMode == '1') {
-    DarkEnabler();
-}
-
 function ThemeSwitch() {
     if (checkMode == '0') {
         DarkEnabler();
@@ -142,6 +151,7 @@ function ThemeSwitch() {
     }
 }
 
+// Document element optimizers
 document.getElementsByClassName('toggle-switch-block')[0].innerHTML = `
 <label class="switch" onclick="ThemeSwitch()">
   <input type="checkbox">
@@ -153,9 +163,6 @@ document.getElementsByClassName('toggle-menu-block')[0].innerHTML = `
 <span class="bar"></span>
 <span class="bar"></span>`;
 
-const toggleButton = document.getElementsByClassName('toggle-menu-block')[0]
-const navbarLinks = document.getElementsByClassName('top-tab-block')[0]
-
 toggleButton.addEventListener('click', () => {
     navbarLinks.classList.toggle('active')
 })
@@ -164,7 +171,6 @@ document.getElementsByClassName("block-button-close-e").onclick = function (e) {
     location.reload(true);
 }
 
-const addclosers = document.querySelectorAll('.block-popup');
 if (addclosers.length) {
     for (let step = 0; step < addclosers.length; step++) {
         const element = addclosers[step];
@@ -175,3 +181,8 @@ if (addclosers.length) {
         element.appendChild(test);
     }
 }
+
+/*
+    COPYRIGHT BY YUKI ARIMO
+    KAWAI FRAMEWORK
+*/

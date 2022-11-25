@@ -163,7 +163,6 @@
     text-decoration: none;
     color: black;
     width: auto;
-    float: center;
     font-size: 14px;
     height: auto;
     font-family: kawai-font;
@@ -206,7 +205,7 @@
 /*  TABS    */
 .top-tab-block>.top-tab-block-e:hover {
     background-color: rgb(207, 210, 209);
-    padding: 2%;
+    padding: 1%;
     border-radius: 6px;
 }
 
@@ -216,12 +215,15 @@
 
 .top-tab-block-e {
     display: flex;
-    margin-right: 2%;
+    margin-right: 5%;
+    padding: 1%;
 }
 
 .top-tab-block {
     display: flex;
     align-items: center;
+    padding: 1%;
+    width: fit-content;
 }
 
 /*  OTHER   */
@@ -244,6 +246,10 @@
 }
 
 /*  STYLISHING  */
+.center {
+    text-align: center;
+}
+
 .tab-o {
     display: none;
 }
@@ -797,3 +803,8 @@ template {
 [hidden] {
     display: none;
 }
+
+/*
+    COPYRIGHT BY YUKI ARIMO
+    KAWAI FRAMEWORK
+*/
