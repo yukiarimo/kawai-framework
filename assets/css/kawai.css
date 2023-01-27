@@ -6,10 +6,9 @@
 /* CONFIGURATION */
 /*  NAVIGATION  */
 .topbar-o {
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 2%;
     border-bottom: 1px solid rgb(229, 229, 229);
 }
@@ -68,6 +67,7 @@
 }
 
 .block-l {
+    display: flex;
     width: 90%;
     display: inline-block;
     height: auto;
@@ -76,7 +76,7 @@
     padding: 1%;
     border: 1px solid rgb(230, 230, 230);
     word-wrap: break-word;
-    align-content: stretch
+    align-content: stretch;
 }
 
 .block-card {
@@ -87,6 +87,7 @@
     border: 1px solid rgb(230, 230, 230);
     padding: 1%;
     border-radius: 6px;
+    justify-content: space-between;
 }
 
 .block-form {
@@ -114,7 +115,7 @@
 
 .block-button {
     width: auto;
-    height: auto;
+    height: fit-content;
     padding: 2%;
     background: rgb(53, 120, 246);
     border-radius: 6px;
@@ -168,6 +169,7 @@
     font-family: kawai-font;
     padding: 1%;
     line-height: 1.5;
+    align-content: stretch;
 }
 
 /*  ADDITIONAL ELEMENTS */
@@ -368,6 +370,15 @@
 
 .block-popup>.div {
     text-align: center;
+}
+
+.row-line {
+    display: flex;
+    flex-direction: row !important;
+}
+
+.container {
+    display: flex;
 }
 
 /*  TABS    */
