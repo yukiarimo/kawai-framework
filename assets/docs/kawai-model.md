@@ -5,7 +5,7 @@
 ### Elements:
 > topbar-o
     - text-block
-    - toggle-block (for mobile)
+    - toggle-menu-block (for mobile)
     - top-tab-block > top-tab-block-e
 
 > sidebar-o

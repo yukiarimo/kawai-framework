@@ -1,40 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="fonts/SFCompactRounded-Regular.otf" rel="stylesheet">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <link href="fonts/kawai-font.otf" rel="stylesheet">
+    <title>Kawai</title>
+    <link rel="stylesheet" href="assets/css/kawai.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <script src="assets/js/kawai.js" defer></script>
+    <meta name="description" content="Kawai - is a native JavaScript framework and CSS library. It has no dependencies because it is written from scratch. You can use it to build your dream projects
+  sooner, or to adapt your cross-platform web application">
+    <meta name="keywords" content="HTML, CSS, framework, JavaScript">
+    <link rel="author" href="https://www.yukiarimo.tk" />
 </head>
+
 <body>
-    <center>
-        <block-o>
-            <block-l>
-                <text-l>Welcome to RoundStep!</text-l>
-                <text-la>Greetings!</text-la>
-            </block-l>
+    <div class="block-o">
+        <div class="topbar-o">
+            <div class="la text-block">Kawai</div>
+            <div class="top-tab-block">
+                <div class="top-tab-block-e text-block lc">Home</div>
+                <div class="top-tab-block-e text-block lc">Docs</div>
+                <div class="top-tab-block-e text-block lc">Contact</div>
+            </div>
+            <div class="toggle-menu-block"></div>
+        </div>
 
-            <block-la>
-                <text-lb>Why RoundStep?</text-lb>
-                <text-lc>Because</text-lc>
-            </block-la>
-            <block-la>
-                <text-lb>What about pricing?</text-lb>
-                <text-lc>Free</text-lc>
-            </block-la>
+        <div class="collector-lo">
+            <div class="block-l el-9 shadow">
+                <div class="text-block la">Hi from Kawai</div>
+                <div class="text-block lb">Kawai - is the world famous framework for build anything that you want is one
+                    sec! Kawaii style is known for its adorable and playful design, which can add a fun and lively touch to any website.</div>
+            </div>
+        </div>
 
-            <block-la>
-                <text-lb>Why RoundStep?</text-lb>
-                <text-lc>Because</text-lc>
-            </block-la>
-            <block-la>
-                <text-lb>Why RoundStep?</text-lb>
-                <text-lc>Because</text-lc>
-            </block-la>
-        </block-o>
-    </center>
+        <div class="collector-lo">
+            <div class="block-card el-4">
+                <div class="text-block lb">User experience</div>
+                <div class="text-block lc">The playful and cute elements of a kawaii website can make the user experience more enjoyable and memorable, improving the overall perception of the site.</div>
+                <br>
+                <div class="block-button" onclick="OpenPopup('test-modal-1')">How it works</div>
+            </div>
+
+            <div class="block-card el-4">
+                <div class="text-block lb">Increase brand loyalty</div>
+                <div class="text-block lc">A kawaii website can make visitors feel a strong emotional connection with a brand, increasing brand loyalty and making them more likely to return to the site.</div>
+            </div>
+        </div>
+
+        <div class="collector-lo">
+            <div class="block-card el-4">
+                <div class="text-block">
+                    <div class="text-block lb">Appeal to a younger audience</div>
+                    <div class="text-block lc">Kawaii is popular among younger generations, so a kawaii-style website can be an effective way to reach and connect with this demographic.</div>
+                </div>
+            </div>
+
+            <div class="block-card el-4">
+                <div class="text-block lb">Pricing</div>
+                <div class="text-block lc">Its open source - no do not need to pay for it, just use and enjoy! Also you
+                    can collabare on GitHub
+                </div>
+            </div>
+        </div>
+
+        <div class="collector-lo">
+            <div class="block-l el-9 shadow">
+                <div class="text-block la center">Easy to Use</div>
+            </div>
+        </div>
+
+        <div class="collector-lo">
+            <div class="block-card el-4">
+                <div class="text-block lb">Speed and Lightweight</div>
+                <div class="text-block lc">Kawai is designed to be fast and efficient, allowing you to quickly set up and run your projects without any lag or delay. With its minimalist design and optimized code, Kawai is a lightweight solution that won't slow down your system or consume too much memory.</div>
+            </div>
+
+            <div class="block-card el-4">
+                <div class="text-block lb">Responsive SEO-friendly Design</div>
+                <div class="text-block lc">Kawai's responsive design ensures that your website will look great and function seamlessly on any device, from desktop computers to smartphones and tablets. With Kawai, you can easily optimize your website for search engines, so you can rank higher in search results and attract more visitors.</div>
+            </div>
+        </div>
+
+        <div class="collector-lo">
+            <div class="block-l el-9 shadow">
+                <div class="text-block la center">Get started</div>
+            </div>
+        </div>
+
+        <div class="collector-lo">
+            <div class="block-l el-9">
+                <div class="text-block la">Read documentation</div>
+                <div class="text-block lc">With all these benefits and more, Kawai is the perfect choice for anyone looking for a fast, lightweight, and easy-to-use website setup. So why wait? Start exploring Kawai today and see for yourself why so many people are choosing this innovative platform!</div>
+
+                <div class="block-button">Link</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block-popup" id="test-modal-1">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Modal Header</h2>
+          </div>
+          <div class="modal-body">
+            <p>Modal Body</p>
+          </div>
+          <div class="modal-footer">
+            <button class="block-button">Close</button>
+          </div>
+        </div>
+      </div>
+      
 </body>
+
 </html>

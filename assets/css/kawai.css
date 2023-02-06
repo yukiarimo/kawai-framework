@@ -6,10 +6,10 @@
 /* CONFIGURATION */
 /*  NAVIGATION  */
 .topbar-o {
-    width: 100%;
+    background: teal;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 2%;
     border-bottom: 1px solid rgb(229, 229, 229);
 }
@@ -68,15 +68,16 @@
 }
 
 .block-l {
+    display: flex;
     width: 90%;
     display: inline-block;
     height: auto;
     text-decoration: none;
     border-radius: 6px;
     padding: 1%;
-    border: 1px solid rgb(230, 230, 230);
     word-wrap: break-word;
-    align-content: stretch
+    align-content: stretch;
+    background: white;
 }
 
 .block-card {
@@ -84,9 +85,10 @@
     flex-direction: column;
     height: auto;
     width: 30%;
-    border: 1px solid rgb(230, 230, 230);
+    background: white;
     padding: 1%;
     border-radius: 6px;
+    justify-content: space-between;
 }
 
 .block-form {
@@ -114,7 +116,7 @@
 
 .block-button {
     width: auto;
-    height: auto;
+    height: fit-content;
     padding: 2%;
     background: rgb(53, 120, 246);
     border-radius: 6px;
@@ -163,12 +165,12 @@
     text-decoration: none;
     color: black;
     width: auto;
-    float: center;
     font-size: 14px;
     height: auto;
     font-family: kawai-font;
     padding: 1%;
     line-height: 1.5;
+    align-content: stretch;
 }
 
 /*  ADDITIONAL ELEMENTS */
@@ -182,21 +184,46 @@
 
 /*  POPUS  */
 .block-popup {
-    width: 40%;
-    height: 40%;
+    width: 100%;
+    height: auto;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     position: fixed;
-    margin: auto;
     background: white;
     padding: 1%;
     display: none;
-    border-radius: 6px;
-    border: 1px solid #DDE1E5;
-    box-shadow: 0 0 10000px 10000px rgba(0, 0, 0, 0.60);
     flex-direction: column;
+    display: none;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 6px;
+    width: 90%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-body {
+    padding: 1%;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    border-top: 1px solid #dee2e6;
 }
 
 .block-popup>.div {
@@ -206,8 +233,9 @@
 /*  TABS    */
 .top-tab-block>.top-tab-block-e:hover {
     background-color: rgb(207, 210, 209);
-    padding: 2%;
+    padding: 1%;
     border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .topbar-o>.text-block {
@@ -216,16 +244,19 @@
 
 .top-tab-block-e {
     display: flex;
-    margin-right: 2%;
+    margin-right: 5%;
+    padding: 1%;
 }
 
 .top-tab-block {
     display: flex;
     align-items: center;
+    padding: 1%;
+    width: fit-content;
 }
 
 /*  OTHER   */
-.toggle-block {
+.toggle-menu-block {
     position: absolute;
     flex-direction: column;
     justify-content: space-between;
@@ -236,7 +267,7 @@
     height: 21px;
 }
 
-.toggle-block .bar {
+.toggle-menu-block .bar {
     height: 3px;
     width: 100%;
     background-color: white;
@@ -244,6 +275,10 @@
 }
 
 /*  STYLISHING  */
+.center {
+    text-align: center;
+}
+
 .tab-o {
     display: none;
 }
@@ -291,7 +326,7 @@
     padding: 1%;
 }
 
-.block-dropdown > .block-dropdown-tab {
+.block-dropdown>.block-dropdown-tab {
     background: gray;
     height: auto;
     padding: 1%;
@@ -364,6 +399,15 @@
     text-align: center;
 }
 
+.row-line {
+    display: flex;
+    flex-direction: row !important;
+}
+
+.container {
+    display: flex;
+}
+
 /*  TABS    */
 .top-tab-block>.top-tab-block-e:hover {
     background-color: rgb(207, 210, 209);
@@ -371,7 +415,7 @@
     border-radius: 6px;
 }
 
-.toggle-block .bar {
+.toggle-menu-block .bar {
     height: 3px;
     width: 100%;
     background-color: white;
@@ -500,6 +544,15 @@
     display: none;
 }
 
+.cancel {
+    background: rgb(237, 241, 247);
+    color: black;
+}
+
+.shadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 /* MOBILE CSS */
 @media (max-width : 428px) {
     .sidebar-o {
@@ -515,7 +568,7 @@
         align-items: flex-start;
     }
 
-    .toggle-block {
+    .toggle-menu-block {
         display: flex;
     }
 
@@ -641,6 +694,7 @@ html {
 
 body {
     margin: 0;
+    background-color: rgb(234, 238, 246);
 }
 
 main {
@@ -797,3 +851,8 @@ template {
 [hidden] {
     display: none;
 }
+
+/*
+    COPYRIGHT BY YUKI ARIMO
+    KAWAI FRAMEWORK
+*/
