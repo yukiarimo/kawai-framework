@@ -1,27 +1,11 @@
+# Kawai Framework HTML Documentation
 ## Components
 Kawai comes with a variety of pre-built UI components like topbar, block, collector, and more that can be used to create your projects and make it easy to quickly build and design your web pages.
 Each component should be listed with a short description and any relevant information such as dependencies, configurations, and usage examples.
 
-### Top Bar
+### Topbar-o
 The top bar is a header that appears at the top of the page and contains the logo or title, navigation links, and a toggle menu button. It can be added to your page using the following HTML code:
 
-### Block
-The Block component is a simple container for your content. You can wrap any content inside the Block component, including text, images, or other components.
-```
-<div class="block-l">
-  <!-- Your content here -->
-</div> 
-```
-
-### Block-o (Main Block)
-The block-o is the main block that serves as a container for your content.
-```
-<div class="block-o">
-  <!-- All website -->
-</div>
-```
-
-### Topbar-o
 The topbar-o component creates a top navigation bar with a header, tabs, and a toggle menu button.
 ```
 <div class="topbar-o">
@@ -35,13 +19,31 @@ The topbar-o component creates a top navigation bar with a header, tabs, and a t
 </div>
 ```
 
-### Collector-lo
-The collector-lo component collects and organizes the content into a layout.
+### Block-o (Main Block)
+The block-o is the main block that serves as a container for your content.
 ```
-<div class="collector-lo">
+<div class="block-o">
+  <!-- All website exept sidebar and popups -->
+</div>
+```
+
+### Block-l
+The Block component is a simple container for your content. You can wrap any content inside the Block component, including text, images, or other components.
+```
+<div class="block-l">
+  <div class="text-block la">Hi from Kawai</div>
+    <div class="text-block lb">
+      Kawai - is the world famous framework for building anything you want in one sec!
+    </div>
+</div> 
+```
+
+### Block-collector
+The coll-lo component collects and organizes the content into a layout.
+```
+<div class="coll-lo">
   <div class="block-l el-9 shadow">
-    <div class="text-block la">Hi from Kawai</div>
-    <div class="text-block lb">Kawai - is the world famous framework for building anything you want in one sec!</div>
+    <!-- Your content here -->
   </div>
 </div>
 ```
@@ -98,3 +100,41 @@ Pagination is a component for navigating through pages of content. Pagination is
 
 ### Dropdown: 
 A dropdown is a component for displaying a list of options that can be selected. Dropdowns are typically used for navigation or for filtering content. They consist of a button or a link that, when clicked, displays a list of options. The user can then select one of the options by clicking on it. Dropdowns can be used to allow the user to choose from a set of options, such as a list of categories, a list of countries, or a list of language options. They can also be used to filter content, such as search results, based on specific criteria.
+
+## Simple helpful website model scheme:
+> o <-> lo -> l <-> block -> block-e
+
+### Elements:
+
+- sidebar-o (before block-o)
+    - text-block
+    - side-tab-block > side-tab-block-e
+
+- block-o
+  - < all blocks here>
+
+- topbar-o
+    - text-block
+    - toggle-menu-block (for mobile)
+    - top-tab-block > top-tab-block-e
+
+- bottombar-o
+    - block-bottom-tabs
+
+- block-o (only one for main)
+    - coll-lo
+        - block-l (.el(1-9))
+            - text: l(a,b,c,de,f)
+        - other elems
+
+- block-form
+    - block-input
+    - block-button
+
+- Inneriable
+  - block-scroll (for inside conteiner)
+  - block-list > block-list-e
+  - [block-card, block-popup > block-button-close-e] => similar to block-l
+
+- Outline:
+  - block-popup

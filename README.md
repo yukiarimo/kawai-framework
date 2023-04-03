@@ -3,10 +3,14 @@ Kawai is a light-weight and native JavaScript framework and CSS library. It has 
 With Kawai, you can build your dream projects faster or adapt your cross-platform web applications with ease. It automatically adapts to your screen size, and it is also easy to customize it with the settings of other developers.
 
 ## Features
-- Light-weight and native
+- Light-weight, simple and native speedful UI
 - No dependencies
 - Written from scratch
 - Open source
+- Adapts to different screen sizes and applications
+- Customizable with the settings of other developers
+- Easily extendable
+- Powerful developer tool
 
 ## Getting Started
 To get started with Kawai, you need to include the following files in your HTML:
@@ -14,6 +18,12 @@ To get started with Kawai, you need to include the following files in your HTML:
 ### Installation
 To use Kawai in your project, simply include the CSS and JavaScript files in your HTML file:
 
+Fast connect:
+```
+<script src="https:cdn.com/assets/js/kawai.js" defer></script>
+```
+
+Local connect:
 ```
 <link href="fonts/kawai-font.otf" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/kawai.css">
@@ -54,8 +64,15 @@ You can customize the look and feel of your application by modifying the CSS fil
 Kawai is an open-source project and you can contribute to it on GitHub.
 Official site link: [Tap Here for official site](https://example.com)
 
-### Support
+Contributions can be made via GitHub, using the following format:
+
+```sh
+git commit -m "My First Contribution"
+pull request
+git push main
+```
+
 If you need help with anything related to Kawai, please reach out to the author at https://www.yukiarimo.tk.
 
-## Licensing
+### Licensing
 Kawai is open-source software and is licensed under the MIT License. This means that you are free to use, modify, and distribute it.
