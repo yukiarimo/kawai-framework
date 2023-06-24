@@ -5,6 +5,19 @@
     KAWAI FRAMEWORK
 */
 
+var cssId = 'myCss';  // you could encode the css path itself to generate id..
+if (!document.getElementById(cssId))
+{
+    var head  = document.getElementsByTagName('head')[0];
+    var link  = document.createElement('link');
+    link.id   = cssId;
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'assets/css/kawai.css';
+    link.media = 'all';
+    head.appendChild(link);
+}
+
 // Variables and sub-processes
 let getsideid = 'sidebar'
 let checkSide = localStorage.getItem('side');
@@ -75,7 +88,7 @@ function OpenTablo(tablo) {
     for (let step = 0; step < tablos.length; step++) {
         let element = tablos[step];
         if (element.get)
-        element.style = "display: none";
+            element.style = "display: none";
     }
 
     if (getComputedStyle(document.getElementById(tablo)).display == 'flex') {
@@ -181,6 +194,24 @@ if (addclosers.length) {
         element.appendChild(test);
     }
 }
+
+let sideBar = document.getElementsByClassName('sidebar-o')[0]
+
+sideBar.style.display = "flex";
+sideBar.classList.add('side-on');
+
+var SideSwitcher = document.createElement('div');
+SideSwitcher.classList.add('side-switch');
+SideSwitcher.nodeValue = '='
+SideSwitcher.appendChild(sideBar);
+
+sideBar.addEventListener('click', () => {
+    if (sideBar.classList.contains('side-on')) {
+        sideBar.style.display = "none";
+    } else {
+        sideBar.style.display = "flex";
+    }
+})
 
 /*
     COPYRIGHT BY YUKI ARIMO
