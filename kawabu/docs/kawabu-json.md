@@ -57,18 +57,18 @@ export const SiteBlocks = [{
     "1": [{
         "col": [{
             "name": "block-l",
-            "config": ["text-block", "text-block"],
+            "config": ["block-text", "block-text"],
             "content": ["Hello world", "Welcome to roundstep"]
         }]
     }],
     "2": [{
         "col": [{
             "name": "block-l",
-            "config": ["text-block", "text-block"],
+            "config": ["block-text", "block-text"],
             "content": ["Pricing", "Free"]
         }, {
             "name": "block-l",
-            "config": ["text-block", "text-block"],
+            "config": ["block-text", "block-text"],
             "content": ["Why kawai?", "It is the best"]
         }]
     }]

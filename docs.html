@@ -17,8 +17,17 @@
 </head>
 
 <body>
-  <div class="sidebar-o desktop-only">
-    <div class="text-block-block text la">Hi</div>
+  <div class="sidebar-o desktop-only" id="sidebar">
+    <div class="block-text-block text la">Hi</div>
+    <div class="block-button" onclick="SideBarSwitch('sidebar')">SideClose</div>
+    <div class="side-tab-block">
+      <div class="side-tab-block-e" onclick="OpenTab('1')">Test1</div>
+      <div class="side-tab-block-e" onclick="OpenTab('2')">Test2</div>
+    </div>
+  </div>
+
+  <div class="sidebar-o desktop-only" id="sidebar">
+    <div class="block-text-block text la">Hi</div>
     <div class="block-button" onclick="SideBarSwitch('sidebar')">SideClose</div>
     <div class="side-tab-block">
       <div class="side-tab-block-e" onclick="OpenTab('1')">Test1</div>
@@ -29,7 +38,7 @@
   <div class="block-o uside">
     <div class="topbar-o">
       <div class="block-button" onclick="SideBarSwitch('sidebar')">SideClose</div>
-      <div class="la text-block">Kawai</div>
+      <div class="la block-text">Kawai</div>
       <div class="toggle-menu-block"></div>
       <div class="top-tab-block">
         <div class="top-tab-block-e">Home</div>
@@ -46,15 +55,15 @@
       </div>
       <div class="coll-lo">
         <div class="block-l el-9">
-          <div class="text-block la">Helllo my friend</div>
-          <div class="text-block lb">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+          <div class="block-text la">Helllo my friend</div>
+          <div class="block-text lb">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
         </div>
       </div>
 
       <div class="coll-lo">
         <div class="block-card">
-          <div class="text-block lb">Hello title</div>
-          <div class="text-block lc">Some quick example text to build on the card title and make up the bulk of the
+          <div class="block-text lb">Hello title</div>
+          <div class="block-text lc">Some quick example text to build on the card title and make up the bulk of the
             card's content.
           </div>
           <br>
@@ -62,17 +71,17 @@
         </div>
 
         <form class="block-form">
-          <input type="text-block" class="block-input">
-          <input type="text-block" class="block-input">
+          <input type="block-text" class="block-input">
+          <input type="block-text" class="block-input">
           <button class="block-button">Button</button>
         </form>
       </div>
 
       <div class="coll-lo">
         <div class="block-l el-4">
-          <div class="text-block la">Why RoundStep? bla rege fw </div>
+          <div class="block-text la">Why RoundStep? bla rege fw </div>
           <div class="block-scroll">
-            <div class="text-block lc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum pariatur
+            <div class="block-text lc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum pariatur
               dolores
               quas illo vdfkghdikgrdigdkhg k rhrkhrs ssh srgregregrgr erg erg reg ergegerge g ererg
               vitae! Nemo unde sit quibusdam magnam harum recusandae quis perferendis minus recusandae
@@ -84,12 +93,12 @@
               vitae! Nemo unde sit quibusdam magnam harum recusandae quis perferendis minus recusandae
             </div>
 
-            <div class="text-block ld">Fuck you</div>
+            <div class="block-text ld">Fuck you</div>
           </div>
         </div>
         <div class="block-l el-4">
-          <div class="text-block la">What about pfkepkgee ?</div>
-          <div class="text-block lc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe provident
+          <div class="block-text la">What about pfkepkgee ?</div>
+          <div class="block-text lc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe provident
             blanditiis inventore
             quidem dolor? Nisi esse aspernatur perspiciatis laborum temporibus adipisci</div>
         </div>
@@ -141,9 +150,9 @@
   </div>
 
   <div class="block-popup" id="te1">
-    <div class="text-block la">Hello</div>
+    <div class="block-text la">Hello</div>
 
-    <div class="text-block lb">Welcome to RoundStep</div>
+    <div class="block-text lb">Welcome to RoundStep</div>
   </div>
 </body>
 

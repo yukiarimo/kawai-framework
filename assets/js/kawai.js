@@ -33,28 +33,20 @@ if (checkMode == '1') {
 }
 
 // Functions
-function SideBarSwitch() {
+function SideBarSwitch(idSide) {
     if (checkSide == 0) {
-        SideDisabler('sidebar');
-        document.location.reload(true);
+        SideDisabler(idSide);
     } else {
         localStorage.setItem('side', '0');
         document.location.reload(true);
     }
 }
 
-function SideDisabler() {
-    localStorage.setItem('sideid', 'sidebar');
-    document.getElementById(localStorage.getItem('sideid')).style = "display: none";
+function SideDisabler(idSide) {
+    document.getElementById(idSide).style = "display: none";
     document.getElementsByClassName('block-o')[0].classList.remove('uside')
-    /*const howmanytabs = document.querySelectorAll('.tab-o');
-    if (howmanytabs.length) {
-        for (let step = 0; step < howmanytabs.length; step++) {
-            const element = howmanytabs[step];
-            element.style.display = 'block'
-        }
-    }*/
     localStorage.setItem('side', '1');
+    checkSide = 1
 }
 
 function PopupClose() {
@@ -110,19 +102,88 @@ function OpenTab(gettab) {
 }
 
 function DarkEnabler() {
-    document.getElementsByTagName('body')[0].style = "background-color: rgb(30, 30, 30)";
-    document.getElementsByClassName('topbar-o')[0].style = "color: white";
-    document.getElementsByClassName('sidebar-o')[0].style = "background-color: rgb(36, 38, 38)";
+    var body = document.querySelectorAll('body');
+    var topbarO = document.querySelectorAll('.topbar-o');
+    var sidebarO = document.querySelectorAll('.sidebar-o');
 
-    var text = document.querySelectorAll('.text-block');
+    var text = document.querySelectorAll('.block-text');
+    var textLa = document.querySelectorAll('.la');
+    var textLb = document.querySelectorAll('.lb');
+    var textLc = document.querySelectorAll('.lc');
     var blocksidetabse = document.querySelectorAll('.side-tab-block-e');
     var blockinput = document.querySelectorAll('.block-input');
+    var blockL = document.querySelectorAll('.block-l');
+    var blockCard = document.querySelectorAll('.block-card');
+    var blockButton = document.querySelectorAll('.block-button');
     var blockliste = document.querySelectorAll('.block-list-e');
     var blockdropdowntab = document.querySelectorAll('.block-dropdown-tab')
+
+    if (body.length) {
+        for (let step = 0; step < body.length; step++) {
+            var element = body[step];
+            element.style = "background: rgb(30, 30, 30)";
+        }
+    }
+
+    if (topbarO.length) {
+        for (let step = 0; step < topbarO.length; step++) {
+            var element = topbarO[step];
+            element.style = "color: white";
+        }
+    }
+
+    if (sidebarO.length) {
+        for (let step = 0; step < sidebarO.length; step++) {
+            var element = sidebarO[step];
+            element.style = "background: rgb(30, 30, 30)";
+        }
+    }
 
     if (text.length) {
         for (let step = 0; step < text.length; step++) {
             var element = text[step];
+            element.style = "color: white";
+        }
+    }
+
+    if (textLa.length) {
+        for (let step = 0; step < textLa.length; step++) {
+            var element = textLa[step];
+            element.style = "color: white";
+        }
+    }
+
+    if (textLb.length) {
+        for (let step = 0; step < textLb.length; step++) {
+            var element = textLb[step];
+            element.style = "color: white";
+        }
+    }
+
+    if (textLc.length) {
+        for (let step = 0; step < textLc.length; step++) {
+            var element = textLc[step];
+            element.style = "color: white";
+        }
+    }
+
+    if (blockL.length) {
+        for (let step = 0; step < blockL.length; step++) {
+            var element = blockL[step];
+            element.style = "background: rgb(30, 30, 30)";
+        }
+    }
+
+    if (blockCard.length) {
+        for (let step = 0; step < blockCard.length; step++) {
+            var element = blockCard[step];
+            element.style = "background: rgb(30, 30, 30)";
+        }
+    }
+
+    if (blockButton.length) {
+        for (let step = 0; step < blockButton.length; step++) {
+            var element = blockButton[step];
             element.style = "color: white";
         }
     }

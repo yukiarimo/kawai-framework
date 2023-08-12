@@ -9,11 +9,11 @@ The top bar is a header that appears at the top of the page and contains the log
 The topbar-o component creates a top navigation bar with a header, tabs, and a toggle menu button.
 ```
 <div class="topbar-o">
-  <div class="la text-block">Kawai</div>
+  <div class="la block-text">Kawai</div>
   <div class="top-tab-block">
-    <div class="top-tab-block-e text-block lc">Home</div>
-    <div class="top-tab-block-e text-block lc">Docs</div>
-    <div class="top-tab-block-e text-block lc">Contact</div>
+    <div class="top-tab-block-e block-text lc">Home</div>
+    <div class="top-tab-block-e block-text lc">Docs</div>
+    <div class="top-tab-block-e block-text lc">Contact</div>
   </div>
   <div class="toggle-menu-block"></div>
 </div>
@@ -31,8 +31,8 @@ The block-o is the main block that serves as a container for your content.
 The Block component is a simple container for your content. You can wrap any content inside the Block component, including text, images, or other components.
 ```
 <div class="block-l">
-  <div class="text-block la">Hi from Kawai</div>
-    <div class="text-block lb">
+  <div class="block-text la">Hi from Kawai</div>
+    <div class="block-text lb">
       Kawai - is the world famous framework for building anything you want in one sec!
     </div>
 </div> 
@@ -107,14 +107,14 @@ A dropdown is a component for displaying a list of options that can be selected.
 ### Elements:
 
 - sidebar-o (before block-o)
-    - text-block
+    - block-text
     - side-tab-block > side-tab-block-e
 
 - block-o
   - < all blocks here>
 
 - topbar-o
-    - text-block
+    - block-text
     - toggle-menu-block (for mobile)
     - top-tab-block > top-tab-block-e
 
