@@ -88,6 +88,7 @@
     word-wrap: break-word;
     align-content: stretch;
     background: white;
+    border: 1px solid #DDE1E5;
 }
 
 .block-card {
@@ -96,6 +97,7 @@
     height: auto;
     width: 30%;
     background: white;
+    border: 1px solid #DDE1E5;
     padding: 1%;
     border-radius: 6px;
     justify-content: space-between;
@@ -128,11 +130,9 @@
     width: auto;
     height: fit-content;
     padding: 2%;
-    background: rgb(53, 120, 246);
+    border: 1px solid rgb(53, 120, 246);
     border-radius: 6px;
-    color: white;
     display: flex;
-    border: 0;
 }
 
 .block-list {
@@ -170,7 +170,7 @@
 }
 
 /*  TEXT  */
-.text-block {
+.block-text {
     display: block;
     text-decoration: none;
     color: black;
@@ -248,7 +248,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.topbar-o>.text-block {
+.topbar-o>.block-text {
     line-height: normal;
 }
 
@@ -425,7 +425,7 @@
 }
 
 /*  STYLISHING  */
-.sidebar-o>.text-block {
+.sidebar-o>.block-text {
     text-align: center;
     font-size: 27px;
     display: flex;

@@ -20,7 +20,7 @@ var addElementBlockl = `
 `
 
 var addElementTextBlock = `
-<div class="text-block">
+<div class="block-text">
 
 </div>
 `
@@ -64,7 +64,7 @@ function kawaiConstructorSidebar(data) {
     createSidebarTabs = createSidebarTabs + `<div class="side-tab-block-e" OpenTab("${sidebarSetup.links[0][Object.keys(sidebarSetup.links[0])[step]]}")>${Object.keys(sidebarSetup.links[0])[step]}</div>`
   }
     var createSidebar = `<div class="sidebar-o">
-        <div class="text-block la">${sidebarSetup.logo}</div>
+        <div class="block-text la">${sidebarSetup.logo}</div>
         <div class="side-tab-block">
           ${createSidebarTabs}</div></div>`
     return createSidebar
@@ -72,7 +72,7 @@ function kawaiConstructorSidebar(data) {
 
 function kawaiConstructorTopbar(data) {
     var createTopbar = `<div class="topbar-o">
-      <div class="la text-block">Kawai</div>
+      <div class="la block-text">Kawai</div>
       <div class="toggle-menu-block"></div>
       <div class="top-tab-block">
         <div class="top-tab-block-e">Home</div>

@@ -48,8 +48,8 @@ If you're going to use different parts of the franework, you can read about them
 Here is a simple Hello World example using Kawai:
 ```
 <div class="block-l el-9 shadow">
-  <div class="text-block la">Hi from Kawai</div>
-  <div class="text-block lb">Kawai - is the world famous framework for build anything that you want in one sec!</div>
+  <div class="block-text la">Hi from Kawai</div>
+  <div class="block-text lb">Kawai - is the world famous framework for build anything that you want in one sec!</div>
 </div>
 ```
 
