@@ -1,24 +1,8 @@
-"use strict"
-
 /*
     COPYRIGHT BY YUKI ARIMO
     KAWAI FRAMEWORK
 */
 
-var cssId = 'myCss';  // you could encode the css path itself to generate id..
-if (!document.getElementById(cssId))
-{
-    var head  = document.getElementsByTagName('head')[0];
-    var link  = document.createElement('link');
-    link.id   = cssId;
-    link.rel  = 'stylesheet';
-    link.type = 'text/css';
-    link.href = 'assets/css/kawai.css';
-    link.media = 'all';
-    head.appendChild(link);
-}
-
-// Variables and sub-processes
 let getsideid = 'sidebar'
 let checkSide = localStorage.getItem('side');
 const toggleButton = document.getElementsByClassName('toggle-menu-block')[0]
@@ -32,21 +16,36 @@ if (checkMode == '1') {
     DarkEnabler();
 }
 
-// Functions
-function SideBarSwitch(idSide) {
-    if (checkSide == 0) {
-        SideDisabler(idSide);
+const sidebar = document.getElementById('sidebar');
+
+// Event listener for the toggle button
+function SideSwitch() {
+    if (sidebar.classList.contains('showside')) {
+        closeSidebar();
     } else {
-        localStorage.setItem('side', '0');
-        document.location.reload(true);
+        openSidebar();
     }
+};
+
+// Function to open the sidebar
+function openSidebar() {
+    if (sidebar.classList.contains('hideside')) {
+        sidebar.classList.remove('hideside');
+        sidebar.classList.add('showside');
+    } else {
+        sidebar.classList.add('showside');
+    }
+    sidebar.classList.add('showside');
 }
 
-function SideDisabler(idSide) {
-    document.getElementById(idSide).style = "display: none";
-    document.getElementsByClassName('block-o')[0].classList.remove('uside')
-    localStorage.setItem('side', '1');
-    checkSide = 1
+// Function to close the sidebar
+function closeSidebar() {
+    if (sidebar.classList.contains('showside')) {
+        sidebar.classList.remove('showside');
+        sidebar.classList.add('hideside');
+    } else {
+        sidebar.classList.add('hideside');
+    }
 }
 
 function PopupClose() {
@@ -102,88 +101,19 @@ function OpenTab(gettab) {
 }
 
 function DarkEnabler() {
-    var body = document.querySelectorAll('body');
-    var topbarO = document.querySelectorAll('.topbar-o');
-    var sidebarO = document.querySelectorAll('.sidebar-o');
+    document.getElementsByTagName('body')[0].style = "background-color: rgb(30, 30, 30)";
+    document.getElementsByClassName('topbar-o')[0].style = "color: white";
+    document.getElementsByClassName('sidebar-o')[0].style = "background-color: rgb(36, 38, 38)";
 
-    var text = document.querySelectorAll('.block-text');
-    var textLa = document.querySelectorAll('.la');
-    var textLb = document.querySelectorAll('.lb');
-    var textLc = document.querySelectorAll('.lc');
+    var text = document.querySelectorAll('.text-block');
     var blocksidetabse = document.querySelectorAll('.side-tab-block-e');
     var blockinput = document.querySelectorAll('.block-input');
-    var blockL = document.querySelectorAll('.block-l');
-    var blockCard = document.querySelectorAll('.block-card');
-    var blockButton = document.querySelectorAll('.block-button');
     var blockliste = document.querySelectorAll('.block-list-e');
     var blockdropdowntab = document.querySelectorAll('.block-dropdown-tab')
-
-    if (body.length) {
-        for (let step = 0; step < body.length; step++) {
-            var element = body[step];
-            element.style = "background: rgb(30, 30, 30)";
-        }
-    }
-
-    if (topbarO.length) {
-        for (let step = 0; step < topbarO.length; step++) {
-            var element = topbarO[step];
-            element.style = "color: white";
-        }
-    }
-
-    if (sidebarO.length) {
-        for (let step = 0; step < sidebarO.length; step++) {
-            var element = sidebarO[step];
-            element.style = "background: rgb(30, 30, 30)";
-        }
-    }
 
     if (text.length) {
         for (let step = 0; step < text.length; step++) {
             var element = text[step];
-            element.style = "color: white";
-        }
-    }
-
-    if (textLa.length) {
-        for (let step = 0; step < textLa.length; step++) {
-            var element = textLa[step];
-            element.style = "color: white";
-        }
-    }
-
-    if (textLb.length) {
-        for (let step = 0; step < textLb.length; step++) {
-            var element = textLb[step];
-            element.style = "color: white";
-        }
-    }
-
-    if (textLc.length) {
-        for (let step = 0; step < textLc.length; step++) {
-            var element = textLc[step];
-            element.style = "color: white";
-        }
-    }
-
-    if (blockL.length) {
-        for (let step = 0; step < blockL.length; step++) {
-            var element = blockL[step];
-            element.style = "background: rgb(30, 30, 30)";
-        }
-    }
-
-    if (blockCard.length) {
-        for (let step = 0; step < blockCard.length; step++) {
-            var element = blockCard[step];
-            element.style = "background: rgb(30, 30, 30)";
-        }
-    }
-
-    if (blockButton.length) {
-        for (let step = 0; step < blockButton.length; step++) {
-            var element = blockButton[step];
             element.style = "color: white";
         }
     }
@@ -224,55 +154,6 @@ function ThemeSwitch() {
         document.location.reload(true);
     }
 }
-
-// Document element optimizers
-document.getElementsByClassName('toggle-switch-block')[0].innerHTML = `
-<label class="switch" onclick="ThemeSwitch()">
-  <input type="checkbox">
-  <span class="slider round"></span>
-</label>`;
-
-document.getElementsByClassName('toggle-menu-block')[0].innerHTML = `
-<span class="bar"></span>
-<span class="bar"></span>
-<span class="bar"></span>`;
-
-toggleButton.addEventListener('click', () => {
-    navbarLinks.classList.toggle('active')
-})
-
-document.getElementsByClassName("block-button-close-e").onclick = function (e) {
-    location.reload(true);
-}
-
-if (addclosers.length) {
-    for (let step = 0; step < addclosers.length; step++) {
-        const element = addclosers[step];
-        let test = document.createElement("div")
-        test.setAttribute('class', 'block-button-close')
-        test.setAttribute('onclick', 'PopupClose()')
-        test.textContent = 'X'
-        element.appendChild(test);
-    }
-}
-
-let sideBar = document.getElementsByClassName('sidebar-o')[0]
-
-sideBar.style.display = "flex";
-sideBar.classList.add('side-on');
-
-var SideSwitcher = document.createElement('div');
-SideSwitcher.classList.add('side-switch');
-SideSwitcher.nodeValue = '='
-SideSwitcher.appendChild(sideBar);
-
-sideBar.addEventListener('click', () => {
-    if (sideBar.classList.contains('side-on')) {
-        sideBar.style.display = "none";
-    } else {
-        sideBar.style.display = "flex";
-    }
-})
 
 /*
     COPYRIGHT BY YUKI ARIMO
