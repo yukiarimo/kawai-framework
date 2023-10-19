@@ -17,6 +17,7 @@ if (checkMode == '1') {
 }
 
 const sidebar = document.getElementById('sidebar');
+const blocko = document.getElementsByClassName('block-o')[0];
 
 // Event listener for the toggle button
 function SideSwitch() {
@@ -32,8 +33,10 @@ function openSidebar() {
     if (sidebar.classList.contains('hideside')) {
         sidebar.classList.remove('hideside');
         sidebar.classList.add('showside');
+        blocko.classList.add('uside')
     } else {
         sidebar.classList.add('showside');
+        blocko.classList.add('uside')
     }
     sidebar.classList.add('showside');
 }
@@ -43,8 +46,10 @@ function closeSidebar() {
     if (sidebar.classList.contains('showside')) {
         sidebar.classList.remove('showside');
         sidebar.classList.add('hideside');
+        blocko.classList.remove('uside')
     } else {
         sidebar.classList.add('hideside');
+        blocko.classList.remove('uside')
     }
 }
 
