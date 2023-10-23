@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/css/kawai.css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <script src="assets/js/kawai.js" defer></script>
+  <script src="assets/js/bundler.js" defer></script>
   <meta name="description" content="Kawai - is a native JavaScript framework and CSS library. It has no dependencies because it is written from scratch. You can use it to build your dream projects
   sooner, or to adapt your cross-platform web application">
   <meta name="keywords" content="HTML, CSS, framework, JavaScript">
@@ -22,7 +23,7 @@
     <div class="block-text-block text la">Menu</div>
 
     <!-- Sidebar Navigation -->
-    <div class="block-button" onclick="SideSwitch();">Side</div>
+    <div class="block-button" onclick="toggleSidebar()">Side</div>
     <div class="side-tab-block">
       <div class="side-tab-block-e" onclick="OpenTab('1')">Home</div>
       <div class="side-tab-block-e" onclick="OpenTab('2')">Documentation</div>
@@ -32,7 +33,7 @@
   <div class="block-o uside">
     <!-- Topbar with Kawai Logo -->
     <div class="topbar-o">
-      <div class="block-button" onclick="SideSwitch();">Side</div>
+      <div class="block-button" onclick="toggleSidebar()">Side</div>
       <div class="la block-text">Explore Kawai</div>
       <div class="toggle-menu-block"></div>
       <div class="top-tab-block">

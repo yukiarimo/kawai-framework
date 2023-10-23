@@ -3,12 +3,22 @@ Kawai Bundler is a powerful tool for creating and managing bundles and extension
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Encode and Decode Operations](#encode-and-decode-operations)
-- [Bundle Creation](#bundle-creation)
-- [Loading and Parsing Bundles](#loading-and-parsing-bundles)
-- [Bundle Blob Creation](#bundle-blob-creation)
-- [Example Usage](#example-usage)
+- [Kawai Bundler](#kawai-bundler)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Encode and Decode Operations](#encode-and-decode-operations)
+    - [`encodeBase64(str)`](#encodebase64str)
+    - [`decodeBase64(base64)`](#decodebase64base64)
+  - [Bundle and Extension Creation](#bundle-and-extension-creation)
+    - [`createBundle(type, assets, script)`](#createbundletype-assets-script)
+    - [`createExtension(type, script)`](#createextensiontype-script)
+  - [Loading and Parsing Bundles](#loading-and-parsing-bundles)
+    - [`getBundleJSON()`](#getbundlejson)
+    - [`loadBundleFromJSON(bundleJSON)`](#loadbundlefromjsonbundlejson)
+    - [`createBundleBlob()`](#createbundleblob)
+  - [Bundle Blob Creation](#bundle-blob-creation)
+    - [`loadBundle()`](#loadbundle)
+  - [Example Usage](#example-usage)
 
 ## Introduction
 Kawai Bundler simplifies the process of creating, managing, and utilizing bundles and extensions within the Kawai framework. With various built-in functionalities, it enables smooth encoding, decoding, creation, and manipulation of bundles for a seamless development experience.
@@ -23,14 +33,20 @@ Encodes a string as base64.
 
 Decodes a base64 string.
 
-## Bundle Creation
+## Bundle and Extension Creation
 
 ### `createBundle(type, assets, script)`
-Creates a bundle with the provided data, including type, assets, and script.
+Creates a bundle with the provided data, including type, assets, and script. This can be used for creating bundles or extensions.
 
-- `type` (string): Specifies the type of the bundle.
-- `assets` (array): Contains an array of base64 encoded elements.
-- `script` (string): Represents a single base64 encoded script.
+- `type` (string): Specifies the type of the bundle or extension.
+- `assets` (array): Contains an array of base64-encoded elements.
+- `script` (string): Represents a single base64-encoded script.
+
+### `createExtension(type, script)`
+Creates an extension with the provided data, including type and script. This is a specialized method for creating extensions.
+
+- `type` (string): Specifies the type of the extension.
+- `script` (string): Represents a single base64-encoded script.
 
 ## Loading and Parsing Bundles
 
@@ -40,23 +56,37 @@ Returns the bundle data as JSON.
 
 ### `loadBundleFromJSON(bundleJSON)`
 
-Loads and parses a bundle from JSON.
+Loads and parses a bundle or extension from JSON.
 
 ### `createBundleBlob()`
 
-Creates and returns a Blob for the bundle.
+Creates and returns a Blob for the bundle or extension.
 
 ## Bundle Blob Creation
 
 ### `loadBundle()`
 
-Creates a download link for the bundle, allowing for easy access and utilization.
+Creates a download link for the bundle or extension, allowing for easy access and utilization.
 
 ## Example Usage
 ```
+// Initialize new Bundler
 const kawaiBundler = new KawaiBundler();
-kawaiBundler.createBundle('extension', ['base64-asset-1', 'base64-asset-2'], 'base64-script');
-kawaiBundler.loadBundle();
+
+// Create a bundle
+kawaiBundler.createBundle('extension', ['base64-asset-1', 'base64-asset-2'], 'console.log("Hello from the bundle!");');
+
+// Downloading created bundle or extension
+kawaiBundler.downloadBundle();
+
+// Loading a bundle or extension from the file
+const bundleLoaded = kawaiBundler.loadBundle('assets/js/newbundle.kawaibundle')
+
+// Activating
+bundleLoaded.activate();
+
+// Activating
+bundleLoaded.deactivate();
 ```
 
 The above example demonstrates the basic usage of the Kawai Bundler for creating and loading a sample bundle.

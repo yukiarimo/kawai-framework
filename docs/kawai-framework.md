@@ -1,204 +1,337 @@
-# Kawai Framework HTML Documentation
+# Kawai Framework Documentation
+
+## Introduction
+
+Kawai is a comprehensive framework that provides a set of pre-built UI components and JavaScript functionalities to simplify the process of web development. With Kawai, developers can quickly create visually appealing and responsive web pages. This documentation serves as a guide for understanding and implementing the various features and functionalities offered by the Kawai Framework.
+
+## Getting Started
+
+To get started with Kawai, ensure that you have a basic understanding of HTML, CSS, and JavaScript. Familiarity with these technologies will help you make the most of the framework and enable you to create dynamic and interactive web applications.
+
 ## Components
-Kawai comes with a variety of pre-built UI components like topbar, block, collector, and more that can be used to create your projects and make it easy to quickly build and design your web pages.
-Each component should be listed with a short description and any relevant information such as dependencies, configurations, and usage examples.
+
+Kawai offers a variety of components that can be utilized to build a robust and engaging user interface. Each component is designed to serve a specific purpose, providing developers with the flexibility to create unique and visually stunning web pages.
+
+# HTML and CSS Documentation
+
+The CSS documentation for the Kawai Framework provides detailed information on the styling and customization options available for the framework's components. This documentation is designed to help you understand how to apply custom styles to achieve the desired look and feel for your web applications.
+
+## Configuration
+
+### Main Configuration
+
+The Kawai Framework offers several main configuration options to control the appearance and behavior of its components.
+
+- `txt-lock`: Prevents text selection within block elements.
+- `mobile-only`: A preset class for elements that should only be visible on mobile devices.
+- `desktop-only`: A preset class for elements that should only be visible on desktop devices.
+
+### UI Customization
+
+Customizing the visual aspects of the Kawai components is crucial for achieving a unique and appealing design. The framework provides various CSS classes for this purpose:
+
+- `uside`: Used to customize the sidebar appearance within the `block-o`.
+- `txt-(1,2,3)`: Controls the text alignment, with options for left, center, and right alignment.
+- `el-(1,2,3,4,5,6,7,8,9,0)`: Specifies the width of elements from 10% to 95%.
+- Unique color classes: Custom color classes such as `mudiny`, `craily`, `rosely`, `oxely`, `finy`, `selty`, `darkly`, and `lovely-blue` for styling.
+
+## Components
+Main UI components
 
 ### Topbar-o
-The top bar is a header that appears at the top of the page and contains the logo or title, navigation links, and a toggle menu button. It can be added to your page using the following HTML code:
 
-The topbar-o component creates a top navigation bar with a header, tabs, and a toggle menu button.
-```
+The `topbar-o` class is used to style the top navigation bar. This bar typically appears at the top of the page and contains important navigation links and branding elements. It has the following properties:
+
+```html
 <div class="topbar-o">
-  <div class="la block-text">Kawai</div>
-  <div class="top-tab-block">
-    <div class="top-tab-block-e block-text lc">Home</div>
-    <div class="top-tab-block-e block-text lc">Docs</div>
-    <div class="top-tab-block-e block-text lc">Contact</div>
-  </div>
-  <div class="toggle-menu-block"></div>
+  <!-- Add your navigation links and branding elements here -->
 </div>
 ```
 
-### Block-o (Main Block)
-The block-o is the main block that serves as a container for your content.
+### Bottombar-o
+
+The `bottombar-o` class is used to style the bottom bar, which is typically positioned at the bottom of the page. This bar may contain links or actions relevant to the page's content. It has the following properties:
+
+```html
+<div class="bottombar-o">
+  <!-- Add your content, links, or actions for the bottom bar here -->
+</div>
 ```
+
+### Block-bottom-tabs
+
+The `block-bottom-tabs` class is used to style tabs within the bottom bar. These tabs are used to provide navigation or categorization of content within the bottom bar. It has the following properties:
+
+```html
+<div class="block-bottom-tabs">
+  <div class="tab">Tab 1</div>
+  <div class="tab">Tab 2</div>
+  <!-- Add more tabs as needed -->
+</div>
+```
+
+### Block-bottom-tabs-e
+
+The `block-bottom-tabs-e` class styles individual tabs within the bottom bar. These tabs are meant to provide specific navigation or actions. It has the following properties:
+
+```html
+<div class="block-bottom-tabs-e">
+  <!-- Add content and actions specific to this tab -->
+</div>
+```
+
+### Sidebar-o
+
+The `sidebar-o` class styles the sidebar located on the left side of the page. This sidebar typically contains navigation links and additional content. It has the following properties:
+
+```html
+<div class="sidebar-o">
+  <!-- Add navigation links and content for the sidebar here -->
+</div>
+```
+
+### Block-o
+
+The `block-o` class provides a general styling template for block elements. It's often used as a container for various content or components. This class doesn't apply any specific styles but is useful for grouping content within a common container.
+
+```html
 <div class="block-o">
-  <!-- All website exept sidebar and popups -->
+  <!-- Add your content or components within this block -->
 </div>
 ```
 
-### Block-l
-The Block component is a simple container for your content. You can wrap any content inside the Block component, including text, images, or other components.
-```
-<div class="block-l">
-  <div class="block-text la">Hi from Kawai</div>
-    <div class="block-text lb">
-      Kawai - is the world famous framework for building anything you want in one sec!
-    </div>
-</div> 
+### Tab-o
+
+The `tab-o` class is used for styling tabs or tabbed content. It often works in conjunction with JavaScript to toggle the visibility of specific content when a tab is clicked. The class is set to `display: none` by default and should be used in combination with JavaScript functionality to show and hide tabs.
+
+```html
+<div class="tab-o" id="tab1">
+  <!-- Content for Tab 1 -->
+</div>
 ```
 
-### Block-collector
-The coll-lo component collects and organizes the content into a layout.
-```
+### Coll-lo
+
+The `coll-lo` class is applied to elements within the framework to create content containers that are organized in a column layout. This class is useful for structuring content vertically.
+
+```html
 <div class="coll-lo">
-  <div class="block-l el-9 shadow">
-    <!-- Your content here -->
-  </div>
+  <!-- Content organized in a vertical column -->
 </div>
 ```
 
-### Card
-The Card component is a pre-built UI element that you can use to display content in a visually appealing way. You can use cards to show images, text, and other elements in a compact, organized manner.
+### Block-card
 
-### List
-The List component is used for displaying a list of items, such as text or images. It allows you to present information in a clean and organized way, and can be customized to match the look and feel of your project.
+The `block-card` class is used to create card-like containers for various types of content, such as informational blocks, cards, or panels. It provides a consistent styling for these elements.
 
-### Pop-Up
-The Pop-Up component is a UI element that allows you to display additional content or information on top of your existing content. It is often used for modal windows, notifications, or other types of messages that need to be displayed temporarily.
-
-### Sidebar
-The Sidebar component is a pre-built UI element that can be used for navigation, or for displaying additional information. It is typically placed on the side of your screen and can be toggled on or off as needed.
-
-### Forms
-The Forms component is a pre-built UI element that allows you to collect information from users. You can use forms to create input fields, dropdown menus, radio buttons, and other types of form elements that can be used to gather information from users.
-
--------------------------------------
-
-### Navbar:
-A navigation bar is a crucial component of any website as it provides easy navigation to different pages or sections of a website. It typically displays a list of links in a horizontal or vertical format, allowing users to quickly find and access the information they need. A well-designed navbar should be simple, intuitive, and responsive, adapting to different screen sizes and devices. It should also provide visual cues, such as active or hover states, to indicate the current location or selection.
-
-### Carousel:
-A carousel is a component for displaying a slideshow of images or content. It allows users to view multiple pieces of content in a single container, where only one slide is visible at a time. Carousels typically include navigation controls, such as arrows or indicators, to allow users to flip through the slides. They are often used to showcase products, promotions, or featured content. To ensure a good user experience, it's important to design a carousel that is fast, responsive, and accessible, and that provides clear visual cues to indicate the current slide and the total number of slides.
-
-### Modal:
-A modal is a pop-up window that appears on top of the main content, used for displaying additional information or for capturing user input. Modals are typically used for tasks such as creating or editing an item, displaying a message or confirmation, or requesting additional information from the user. A well-designed modal should be easy to use, accessible, and should not interfere with the main content of the page. It should also include clear calls to action and should be dismissible by the user.
-
-### Table:
-A table is a component for displaying data in a tabular format. It allows users to view large amounts of data in an organized and structured way, making it easier to compare and analyze the information. Tables typically include columns and rows, with each cell containing a specific piece of data. To ensure a good user experience, it's important to design a table that is responsive, accessible, and easy to read and understand. This may include using clear headings, color coding, and appropriate font sizes.
-
-### Tabs:
-Tabs are a component for displaying multiple sections of content in a single container, where only one section is visible at a time. Tabs are typically used to display related content in a compact and organized way, allowing users to quickly switch between different sections. They can be arranged horizontally or vertically, and should include clear labels to indicate the content of each tab. To ensure a good user experience, it's important to design tabs that are intuitive, accessible, and responsive, adapting to different screen sizes and devices.
-
-### Accordion:
-An accordion is a component for displaying multiple sections of content in a single container, where only one section is visible at a time, and the rest can be expanded or contracted. Accordions are similar to tabs, but allow for a more compact display of content. They are often used to display related information, such as FAQs or product descriptions. To ensure a good user experience, it's important to design an accordion that is easy to use, accessible, and responsive, adapting to different screen sizes and devices. It should also include clear labels and visual cues to indicate the state of each section, such as expanded or contracted.
-
-### Progress bar:
-A progress bar is a component for indicating the progress of a task or an operation. It provides a visual representation of how much of the task has been completed, and how much remains. Progress bars are often used to show the status of downloads, installations, or other time-consuming tasks. To ensure a good user experience, it's important to design.
-
-### Tooltip: 
-A tooltip is a small information box that displays additional information about an element when the user hovers over it with the cursor. Tooltips are commonly used to provide clarification or additional information about an element, such as a button or a link. They can also be used to display short messages or to provide context for the user. Tooltips are usually positioned near the element they are associated with and disappear when the user moves the cursor away.
-
-### Alert: 
-An alert is a component that displays a message to the user in a prominent way. Alerts are typically used to provide information about a specific event or condition, such as an error message, a success message, or a warning. Alerts can be displayed in various forms, such as a pop-up window, a banner, or a modal, and they can include a message, an icon, and a set of actions or buttons. The purpose of alerts is to draw the user's attention to important information and to provide guidance on how to proceed.
-
-### Badge: 
-A badge is a small component that displays a numeric value or status indicator. Badges are often used to show the number of items in a list or to highlight important information. For example, a badge can be used to show the number of unread messages in an inbox, the number of items in a shopping cart, or to indicate the status of an item, such as "new" or "featured." Badges are usually displayed in a prominent place, such as next to the item they are associated with, and they are designed to be eye-catching and easily recognizable.
-
-### Pagination: 
-Pagination is a component for navigating through pages of content. Pagination is used to break up large amounts of content into smaller, more manageable sections, making it easier for users to navigate and find what they're looking for. Pagination typically consists of a series of page numbers, or buttons for navigating to the next or previous page, and can also include options for jumping to specific pages or for displaying a specific number of items per page. The purpose of pagination is to allow the user to easily move through a large amount of content, and to make it easier to find what they're looking for.
-
-### Dropdown: 
-A dropdown is a component for displaying a list of options that can be selected. Dropdowns are typically used for navigation or for filtering content. They consist of a button or a link that, when clicked, displays a list of options. The user can then select one of the options by clicking on it. Dropdowns can be used to allow the user to choose from a set of options, such as a list of categories, a list of countries, or a list of language options. They can also be used to filter content, such as search results, based on specific criteria.
-
-## Simple helpful website model scheme:
-> o <-> lo -> l <-> block -> block-e
-
-### Elements:
-
-- sidebar-o (before block-o)
-    - block-text
-    - side-tab-block > side-tab-block-e
-
-- block-o
-  - < all blocks here>
-
-- topbar-o
-    - block-text
-    - toggle-menu-block (for mobile)
-    - top-tab-block > top-tab-block-e
-
-- bottombar-o
-    - block-bottom-tabs
-
-- block-o (only one for main)
-    - coll-lo
-        - block-l (.el(1-9))
-            - text: l(a,b,c,de,f)
-        - other elems
-
-- block-form
-    - block-input
-    - block-button
-
-- Inneriable
-  - block-scroll (for inside conteiner)
-  - block-list > block-list-e
-  - [block-card, block-popup > block-button-close-e] => similar to block-l
-
-- Outline:
-  - block-popup
-
-# Kawai Framework CSS Documentation
-
-## Important note
-> To create any of blocks like sidebar, topbar, block-o, lists etc. - you need to use CSS class and div to proprely render. If you use Kawabu classes will adjust automatically!
-
-### Main configuration
-- txt-lock (block on block text select)
-- mobile-only (preset)
-- desktop-only (preset)
-
-### UI customization
-- uside (block-o only for sidebar)
-- txt-(1,2,3) (align for left, center, and right text)
-
-- div size el-(1,2,3,4,5,6,7,8,9,0) from 10% to 95%
-- Colors unique: mudiny, craily, rosely, oxely, finy, selty, darkly, lovely-blue=selected
-
-#### Other
-- tab-o-default (set default one tab only)
-
-# Kawai Framework JS Documentation
-This script provides functionality for a UI interface, including a sidebar toggle, popup modals, and dark mode support.
-
-## Functions
-
-#### SideBarSwitch
+```html
+<div class="block-card">
+  <!-- Card content goes here -->
+</div>
 ```
-SideBarSwitch("id-of-sidebar")
+
+### Block-form
+
+The `block-form` class is applied to content containers that serve as forms or input sections. It provides a styling template for form elements, making them visually appealing and consistent.
+
+```html
+<div class="block-form">
+  <!-- Form elements and inputs go here -->
+</div>
 ```
-This function toggles the sidebar on and off.
 
-Or, this function sets the local storage value for sideid to sidebar and hides the sidebar element by setting its style to "display: none". It also removes the uside class from the .block-o element.
+### Block-input
 
-#### PopupClose
-This function closes open popups using automatic open popup detection
+The `block-input` class is used for styling form inputs, such as text fields or text areas. It adds rounded corners and padding, making the inputs visually consistent with the framework's design.
 
-#### OpenLink
-This function opens a the specified link URL.
+```html
+<div class="block-input">
+  <!-- Form input element goes here -->
+</div>
+```
 
-#### OpenPopup
-This function opens a popup with the specified getid.
+### Block-button
 
-#### OpenTablo
-This function toggles the display of the specified tablo element.
+The `block-button` class is used for styling buttons and clickable elements. It provides a consistent button design with a background color, text color, and hover effects.
 
-#### OpenTab
-This function opens a tab with the specified gettab by setting its display style to "flex".
+```html
+<div class="block-button">
+  <!-- Button text or content -->
+</div>
+```
 
-#### DarkEnabler
-This function sets styles for various elements to enable dark mode, including the background color, text color, and sidebar style.
+### Block-list
 
-## Variables and -processes
-- getsideid is a string that holds the value of the sidebar id.
-- checkSide is a variable that checks the value of the side in local storage.
-- toggleButton is a reference to the toggle menu button element.
-- navbarLinks is a reference to the top navigation bar links element.
-- addclosers is a reference to the popup elements.
-- If checkSide is equal to 1, the SideDisabler function is called.
-- checkMode is a variable that checks the value of the mode in local storage.
-- If checkMode is equal to 1, the DarkEnabler function is called.
+The `block-list` class is used for styling lists or lists of items. It provides a consistent design for displaying items in a list format.
+
+```html
+<div class="block-list">
+  <!-- List items go here -->
+</div>
+```
+
+### Block-scroll
+
+The `block-scroll` class is applied to containers that should display scrollable content. It sets a maximum height for the container and provides custom scroll styling for a better user experience.
+
+```html
+<div class="block-scroll">
+  <!-- Scrollable content goes here -->
+</div>
+```
+
+### Block-text
+
+The `block-text` class is used for styling text elements within the framework. It provides consistent typography and spacing for text content.
+
+```html
+<div class="block-text">
+  <!-- Text content goes here -->
+</div>
+```
+
+### Block-toggle
+
+The `block-toggle` class is applied to elements that can be toggled on and off. It often works in conjunction with JavaScript to provide toggle functionality. The class is set to `width: 60px` and can be used for creating toggle switches.
+
+```html
+<div class="block-toggle"></div>
+```
+
+### Block-button-close-e
+
+The `block-button-close-e` class is used for creating close buttons or elements within the framework. It provides a consistent design for closing or dismissing elements, such as modal dialogs.
+
+```html
+<div class="block-button-close-e">
+  <!-- Close button content or icon -->
+</div>
+```
+
+These descriptions and examples should give you a clear understanding of how to use each class in the Kawai Framework to style different types of elements and components within your web applications. You can apply these classes to your HTML code as needed to achieve the desired visual design and functionality.
 
 ## Conclusion
-This script provides essential functionality for a UI interface, such as toggle options and modal windows. The functions can be easily modified and added to based on the needs of the specific project.
+
+This CSS documentation provides insights into the styling options available for the Kawai Framework's components. By using the provided classes and styles, you can tailor the appearance of your web applications to meet your specific design requirements. For additional details and usage examples, refer to the relevant component sections within the documentation.
+
+### JavaScript
+
+The JavaScript section of the documentation will focus on the functionalities and interactions provided by the Kawai Framework. You will discover how to leverage the JavaScript functions to create dynamic and responsive user experiences. The documentation will cover the usage of various functions and their parameters, enabling you to incorporate advanced functionalities into your web applications.
+
+## Event Listeners and Functions
+
+### Toggle Sidebar
+```javascript
+function toggleSidebar()
+```
+- **Description:** This function toggles the visibility of the sidebar by adding and removing CSS classes. It's typically triggered when a button or element with the class `toggle-menu-block` is clicked.
+- **Example:** 
+```javascript
+toggleSidebar();
+```
+
+### Popup Close
+```javascript
+function PopupClose()
+```
+- **Description:** This function closes any visible pop-up elements by setting their display property to 'none'. It's often used to dismiss modal dialogs.
+- **Example:**
+```javascript
+PopupClose();
+```
+
+### Open Link
+```javascript
+function OpenLink(getlink)
+```
+- **Description:** This function opens a link in the same window/tab. Pass the URL as the `getlink` parameter to navigate to the specified page.
+- **Example:**
+```javascript
+OpenLink('https://example.com');
+```
+
+### Open Popup
+```javascript
+function OpenPopup(getid)
+```
+- **Description:** This function displays a hidden pop-up element by changing its display property to 'flex'. Use the `getid` parameter to specify the ID of the pop-up element.
+- **Example:**
+```javascript
+OpenPopup('test-modal-1');
+```
+
+### Open Tablo
+```javascript
+function OpenTablo(tablo)
+```
+- **Description:** This function is used to toggle the visibility of tabbed content. It checks the current display state of a tab and switches it from 'flex' to 'none' or vice versa.
+- **Example:**
+```javascript
+OpenTablo('tab-1');
+```
+
+### Open Tab
+```javascript
+function OpenTab(gettab)
+```
+- **Description:** This function is used to display a specific tab while hiding others. It sets the `display` property to 'flex' for the specified tab and 'none' for the rest.
+- **Example:**
+```javascript
+OpenTab('tab-1');
+```
+
+### Apply Dark Mode Styles
+```javascript
+function applyDarkModeStyles()
+```
+- **Description:** This function applies dark mode styles to various elements, changing background colors and text colors to create a dark-themed appearance.
+- **Example:**
+```javascript
+applyDarkModeStyles();
+```
+
+### Enable Dark Mode
+```javascript
+function enableDarkMode()
+```
+- **Description:** This function enables dark mode by applying the dark mode styles and storing the mode in localStorage.
+- **Example:**
+```javascript
+enableDarkMode();
+```
+
+### Enable Light Mode
+```javascript
+function enableLightMode()
+```
+- **Description:** This function enables light mode by resetting the styles to the default light mode and storing the mode in localStorage.
+- **Example:**
+```javascript
+enableLightMode();
+```
+
+### Initialize Theme
+```javascript
+function initializeTheme()
+```
+- **Description:** This function initializes the theme (dark or light) based on the value stored in localStorage. It's typically called when the page loads.
+- **Example:**
+```javascript
+initializeTheme();
+```
+
+### Toggle Theme
+```javascript
+function toggleTheme()
+```
+- **Description:** This function toggles between dark and light modes by checking the current mode in localStorage and applying the opposite mode.
+- **Example:**
+```javascript
+toggleTheme();
+```
+
+## Conclusion
+
+The Kawai Framework offers a comprehensive set of tools and resources for developers to create powerful and visually appealing web applications. By leveraging the components and functionalities provided by the framework, developers can streamline the development process and deliver engaging user experiences. With its intuitive design and extensive documentation, Kawai is an ideal choice for developers looking to build modern and responsive web applications.
+
+For detailed explanations and code samples, refer to the respective sections on HTML, CSS, and JavaScript within the documentation.

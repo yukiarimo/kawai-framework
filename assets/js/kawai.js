@@ -3,54 +3,18 @@
     KAWAI FRAMEWORK
 */
 
-let getsideid = 'sidebar'
-let checkSide = localStorage.getItem('side');
 const toggleButton = document.getElementsByClassName('toggle-menu-block')[0]
 const navbarLinks = document.getElementsByClassName('top-tab-block')[0]
 const addclosers = document.querySelectorAll('.block-popup');
-if (checkSide == '1') {
-    SideDisabler();
-}
-let checkMode = localStorage.getItem('mode');
-if (checkMode == '1') {
-    DarkEnabler();
-}
 
 const sidebar = document.getElementById('sidebar');
-const blocko = document.getElementsByClassName('block-o')[0];
+const blocko = document.querySelector('.block-o');
 
 // Event listener for the toggle button
-function SideSwitch() {
-    if (sidebar.classList.contains('showside')) {
-        closeSidebar();
-    } else {
-        openSidebar();
-    }
-};
-
-// Function to open the sidebar
-function openSidebar() {
-    if (sidebar.classList.contains('hideside')) {
-        sidebar.classList.remove('hideside');
-        sidebar.classList.add('showside');
-        blocko.classList.add('uside')
-    } else {
-        sidebar.classList.add('showside');
-        blocko.classList.add('uside')
-    }
-    sidebar.classList.add('showside');
-}
-
-// Function to close the sidebar
-function closeSidebar() {
-    if (sidebar.classList.contains('showside')) {
-        sidebar.classList.remove('showside');
-        sidebar.classList.add('hideside');
-        blocko.classList.remove('uside')
-    } else {
-        sidebar.classList.add('hideside');
-        blocko.classList.remove('uside')
-    }
+function toggleSidebar() {
+    sidebar.classList.toggle('showside');
+    sidebar.classList.toggle('hideside');
+    blocko.classList.toggle('uside');
 }
 
 function PopupClose() {
@@ -105,58 +69,146 @@ function OpenTab(gettab) {
     document.getElementById(gettab).style.display = 'flex';
 }
 
-function DarkEnabler() {
-    document.getElementsByTagName('body')[0].style = "background-color: rgb(30, 30, 30)";
-    document.getElementsByClassName('topbar-o')[0].style = "color: white";
-    document.getElementsByClassName('sidebar-o')[0].style = "background-color: rgb(36, 38, 38)";
+function applyDarkModeStyles() {
+    document.body.style.backgroundColor = "rgb(30, 30, 30)";
+    document.querySelector('.topbar-o').style.color = 'white';
+    document.querySelector('.sidebar-o').style.backgroundColor = 'rgb(36, 38, 38)';
 
-    var text = document.querySelectorAll('.text-block');
-    var blocksidetabse = document.querySelectorAll('.side-tab-block-e');
-    var blockinput = document.querySelectorAll('.block-input');
-    var blockliste = document.querySelectorAll('.block-list-e');
-    var blockdropdowntab = document.querySelectorAll('.block-dropdown-tab')
+    const elementsToStyle = document.querySelectorAll('.text-block, .side-tab-block-e, .block-input, .block-list-e, .block-dropdown-tab');
+    elementsToStyle.forEach(element => {
+        element.style.color = 'white';
+    });
+}
 
-    if (text.length) {
-        for (let step = 0; step < text.length; step++) {
-            var element = text[step];
-            element.style = "color: white";
-        }
-    }
+function enableDarkMode() {
+    applyDarkModeStyles();
+    localStorage.setItem('mode', 'dark');
+}
 
-    if (blocksidetabse.length) {
-        for (let step = 0; step < blocksidetabse.length; step++) {
-            var element = blocksidetabse[step];
-            element.style = "background-color: rgb(60, 62, 63); color: white";
-        }
-    }
-    if (blockinput.length) {
-        for (let step = 0; step < blockinput.length; step++) {
-            var element = blockinput[step];
-            element.style = "background-color: rgb(40, 40, 40); color: white";
-        }
-    }
-    if (blockliste.length) {
-        for (let step = 0; step < blockliste.length; step++) {
-            var element = blockliste[step];
-            element.style = "color: white";
-        }
-    }
-    if (blockdropdowntab.length) {
-        for (let step = 0; step < blockdropdowntab.length; step++) {
-            var element = blockdropdowntab[step];
-            element.style = "color: white";
-        }
+function enableLightMode() {
+    // Reset styles to the default light mode styles
+    document.body.style.backgroundColor = '';
+    document.querySelector('.topbar-o').style.color = '';
+    document.querySelector('.sidebar-o').style.backgroundColor = '';
+
+    const elementsToStyle = document.querySelectorAll('.text-block, .side-tab-block-e, .block-input, .block-list-e, .block-dropdown-tab');
+    elementsToStyle.forEach(element => {
+        element.style.color = '';
+    });
+
+    localStorage.setItem('mode', 'light');
+}
+
+function initializeTheme() {
+    const storedMode = localStorage.getItem('mode');
+    if (storedMode === 'dark') {
+        enableDarkMode();
+    } else {
+        enableLightMode();
     }
 }
 
-function ThemeSwitch() {
-    if (checkMode == '0') {
-        DarkEnabler();
-        localStorage.setItem('mode', '1');
-        document.location.reload(true);
+function toggleTheme() {
+    const currentMode = localStorage.getItem('mode');
+    if (currentMode === 'dark') {
+        enableLightMode();
     } else {
-        localStorage.setItem('mode', '0');
-        document.location.reload(true);
+        enableDarkMode();
+    }
+}
+
+// Call this function to initialize the theme when the page loads
+initializeTheme();
+
+class KawaiBundler {
+    constructor() {
+        this.bundleData = {
+            type: null,
+            assets: [],
+            script: null,
+        };
+    }
+
+    static generateRandomId() {
+        return Math.random().toString(36).substring(7);
+    }
+
+    static encodeBase64(str) {
+        return btoa(str);
+    }
+
+    static decodeBase64(base64) {
+        return atob(base64);
+    }
+
+    createBundle(type, assets = [], script = null) {
+        this.bundleData.type = type;
+        this.bundleData.assets = assets;
+        this.bundleData.script = script;
+    }
+
+    getBundleJSON() {
+        return JSON.stringify(this.bundleData);
+    }
+
+    async loadBundle(bundleData) {
+        try {
+            if (typeof bundleData == 'object') {
+                // Use the provided bundle data directly
+                this.bundleData = bundleData;
+            } else if (typeof bundleData == 'string') {
+                // Load from a URL
+                const response = await fetch(bundleData);
+                if (response.ok) {
+                    const jsonData = await response.json();
+                    this.bundleData = jsonData;
+                    console.log('success')
+                } else {
+                    console.error('Failed to load bundle:', response.statusText);
+                    return false;
+                }
+            } else {
+                console.error('Invalid bundle data:', bundleData);
+                return false;
+            }
+
+            return true;
+        } catch (error) {
+            console.error('Failed to load bundle:', error);
+            return false;
+        }
+    }
+
+    createBundleBlob() {
+        const bundleJSON = this.getBundleJSON();
+        return new Blob([bundleJSON], {
+            type: 'application/json'
+        });
+    }
+
+    downloadBundle() {
+        const bundleBlob = this.createBundleBlob();
+        const bundleUrl = URL.createObjectURL(bundleBlob);
+
+        const downloadLink = document.createElement('a');
+        downloadLink.href = bundleUrl;
+        downloadLink.download = 'newbundle.kawaibundle';
+        downloadLink.click();
+    }
+
+    activate() {
+        const scriptTag = document.createElement('script');
+        scriptTag.type = 'text/javascript';
+        scriptTag.innerHTML = this.bundleData.script;
+        document.body.appendChild(scriptTag);
+        return this; // Add this line to return the instance
+    }
+
+    deactivate() {
+        const scriptTag = document.querySelector(`script[data-type="${this.bundleData.type}"]`);
+        if (scriptTag) {
+            scriptTag.remove();
+        }
     }
 }
 
