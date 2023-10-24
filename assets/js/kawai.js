@@ -162,22 +162,23 @@ class KawaiBundler {
                 if (response.ok) {
                     const jsonData = await response.json();
                     this.bundleData = jsonData;
-                    console.log('success')
+                    console.log('success');
                 } else {
                     console.error('Failed to load bundle:', response.statusText);
-                    return false;
+                    return null; // Return null on failure
                 }
             } else {
                 console.error('Invalid bundle data:', bundleData);
-                return false;
+                return null; // Return null for invalid input
             }
 
-            return true;
+            return this.bundleData; // Return the loaded data
         } catch (error) {
             console.error('Failed to load bundle:', error);
-            return false;
+            return null; // Return null on error
         }
     }
+
 
     createBundleBlob() {
         const bundleJSON = this.getBundleJSON();
