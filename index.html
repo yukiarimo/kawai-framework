@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="assets/css/kawai.css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <script src="assets/js/kawai.js" defer></script>
-  <script src="assets/js/bundler.js" defer></script>
   <meta name="description" content="Kawai - is a native JavaScript framework and CSS library. It has no dependencies because it is written from scratch. You can use it to build your dream projects
   sooner, or to adapt your cross-platform web application">
   <meta name="keywords" content="HTML, CSS, framework, JavaScript">
@@ -23,26 +22,23 @@
     <div class="block-text-block text la">Menu</div>
 
     <!-- Sidebar Navigation -->
-    <div class="block-button" onclick="toggleSidebar()">Side</div>
     <div class="side-tab-block">
       <div class="side-tab-block-e" onclick="OpenTab('1')">Home</div>
       <div class="side-tab-block-e" onclick="OpenTab('2')">Documentation</div>
     </div>
   </div>
 
-  <div class="block-o uside">
-    <!-- Topbar with Kawai Logo -->
-    <div class="topbar-o">
-      <div class="block-button" onclick="toggleSidebar()">Side</div>
-      <div class="la block-text">Explore Kawai</div>
-      <div class="toggle-menu-block"></div>
-      <div class="top-tab-block">
-        <div class="top-tab-block-e">Home</div>
-        <div class="top-tab-block-e">About</div>
-        <div class="top-tab-block-e">Contact</div>
-      </div>
+  <div class="topbar-o">
+    <div class="block-button" onclick="toggleSidebar()">Side</div>
+    <div class="la block-text">Kawai</div>
+    <div class="top-tab-block">
+      <div class="top-tab-block-e">Home</div>
+      <div class="top-tab-block-e">About</div>
+      <div class="top-tab-block-e">Contact</div>
     </div>
+  </div>
 
+  <div class="block-o">
     <div class="tab-o tab-o-default" id="1">
       <!-- Discover Kawai's Features -->
       <div class="coll-lo">
@@ -52,6 +48,7 @@
           <div class="block-text lb">Kawai is a world-famous framework that empowers you to build amazing websites in no
             time. Its kawaii style brings a touch of playfulness and liveliness to your projects, making them memorable
             and enjoyable.</div>
+            <div class="block-toggle" onclick="toggleTheme()"></div>
         </div>
       </div>
 

@@ -15,6 +15,7 @@ function toggleSidebar() {
     sidebar.classList.toggle('showside');
     sidebar.classList.toggle('hideside');
     blocko.classList.toggle('uside');
+    kawaiAutoScale();
 }
 
 function PopupClose() {
@@ -74,7 +75,12 @@ function applyDarkModeStyles() {
     document.querySelector('.topbar-o').style.color = 'white';
     document.querySelector('.sidebar-o').style.backgroundColor = 'rgb(36, 38, 38)';
 
-    const elementsToStyle = document.querySelectorAll('.text-block, .side-tab-block-e, .block-input, .block-list-e, .block-dropdown-tab');
+    const blockCards = document.querySelectorAll('.block-card');
+    blockCards.forEach(card => {
+        card.style.background = 'rgb(36, 38, 38)';
+    });
+
+    const elementsToStyle = document.querySelectorAll('.block-text, p, a, ul, li, h1, h2, h3, h4, h5, h6, .side-tab-block-e, .block-input, .block-list-e, .block-dropdown-tab');
     elementsToStyle.forEach(element => {
         element.style.color = 'white';
     });
@@ -88,10 +94,23 @@ function enableDarkMode() {
 function enableLightMode() {
     // Reset styles to the default light mode styles
     document.body.style.backgroundColor = '';
-    document.querySelector('.topbar-o').style.color = '';
-    document.querySelector('.sidebar-o').style.backgroundColor = '';
+    
+    const topbar = document.querySelector('.topbar-o');
+    if (topbar) {
+        topbar.style.color = '';
+    }
+    
+    const sidebar = document.querySelector('.sidebar-o');
+    if (sidebar) {
+        sidebar.style.backgroundColor = '';
+    }
 
-    const elementsToStyle = document.querySelectorAll('.text-block, .side-tab-block-e, .block-input, .block-list-e, .block-dropdown-tab');
+    const blockCards = document.querySelectorAll('.block-card');
+    blockCards.forEach(card => {
+        card.style.background = '';
+    });
+
+    const elementsToStyle = document.querySelectorAll('.block-text, p, a, ul, li, h1, h2, h3, h4, h5, h6, .side-tab-block-e, .block-input, .block-list-e, .block-dropdown-tab');
     elementsToStyle.forEach(element => {
         element.style.color = '';
     });
@@ -116,6 +135,29 @@ function toggleTheme() {
         enableDarkMode();
     }
 }
+
+// Function to set margin-top for .block-o dynamically
+function kawaiAutoScale() {
+    var topbar = document.querySelector('.topbar-o');
+    var sidebar = document.querySelector('.sidebar-o');
+    var blocko = document.querySelector('.block-o');
+
+    if (topbar && sidebar && blocko) {
+        var topbarHeight = topbar.offsetHeight;
+        var sidebarWidth = sidebar.offsetWidth;
+        var additionalMargin = 20;
+
+        // Set margin-top for .block-o
+        blocko.style.marginTop = `calc(${topbarHeight}px + ${additionalMargin}px)`;
+        sidebar.style.top = `calc(${topbarHeight}px)`;
+        blocko.style.width = `calc(100% - ${sidebarWidth}px)`;
+        blocko.style.marginLeft = `${sidebarWidth}px`;
+    }
+}
+
+// Call the function on window load and resize
+window.addEventListener('load', kawaiAutoScale);
+window.addEventListener('resize', kawaiAutoScale);
 
 // Call this function to initialize the theme when the page loads
 initializeTheme();
