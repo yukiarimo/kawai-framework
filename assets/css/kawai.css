@@ -3,6 +3,17 @@
     KAWAI FRAMEWORK
 */
 
+.block-text {
+    line-height: normal;
+}
+
+:root {
+    --dark-primary: #0D1117;
+    --dark-secondary: #161B22;
+    --dark-tertiary: #212529;
+    --text-color: #C9D1D9;
+}
+
 .topbar-o {
     position: fixed;
     top: 0;
@@ -10,56 +21,49 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2%;
-    border-bottom: 1px solid rgb(229, 229, 229);
-    background-color: #212529;
-    color: white;
+    padding: 0em;
+    background-color: var(--dark-tertiary);
+    border-bottom: 1px solid var(--dark-primary);
     z-index: 1000;
-    /* Ensure the topbar is above other elements */
-}
-
-.block-text {
-    line-height: normal;
 }
 
 .topbar-o>.block-text {
-    color: white !important;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .top-tab-block {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 2%;
-    width: fit-content;
 }
 
 .top-tab-block-e {
     display: flex;
-    margin-right: 5%;
-    padding: 2%;
+    padding: 0.5em 1em;
+    margin: 0 0.5em;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    color: white;
 }
 
 .top-tab-block-e:hover {
-    background-color: #343a40;
-    padding: 2%;
-    border-radius: 12px;
+    background-color: var(--dark-primary);
 }
 
 .bottombar-o {
-    display: flex;
     position: fixed;
-    text-decoration: none;
-    justify-content: space-between;
     bottom: 0;
     width: 100%;
-    height: fit-content;
-    margin-bottom: 0;
-    padding: 0%;
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(229, 229, 229);
     background-color: #212529;
     color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .block-bottom-tabs {
@@ -84,7 +88,13 @@
     background-color: #343a40;
 }
 
+.logo {
+    margin-bottom: 10%; /* Adjust the percentage as needed */
+}
+
 .sidebar-o {
+    display: flex;
+    flex-direction: column;
     background-color: #1e1e1e;
     color: #ffffff;
     width: 250px;
@@ -94,33 +104,48 @@
     position: fixed;
     bottom: 0;
     overflow-y: auto;
-    /* Enable scrolling within the sidebar if needed */
     z-index: 999;
-    /* Ensure the sidebar is above other elements except the topbar */
+    transition: all 0.5s ease;
 }
 
-/* Sidebar text block styles */
 .sidebar-o>.block-text {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    color: #f0f0f0;
 }
 
-/* Sidebar tab block styles */
 .side-tab-block {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .side-tab-block-e {
-    padding: 10px;
-    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    padding: 5%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 12px;
+    font-size: 18px;
+    color: #333333;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.side-tab-block-e::before {
+    content: '+';
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.side-tab-block-e.active::before {
+    content: '-';
 }
 
 .side-tab-block-e:hover {
-    background-color: #333333;
+    background-color: #d0d0d0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .side-tab-block-e.active {
@@ -156,7 +181,6 @@
     padding: 1%;
     border-radius: 6px;
     justify-content: space-between;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .block-form {
@@ -185,7 +209,7 @@
 
 .block-button {
     cursor: pointer;
-    padding: 2%;
+    padding: 1%;
     background-color: #1a1a1a;
     border-radius: 6px;
     color: #ffffff;
@@ -412,7 +436,6 @@
 }
 
 .block-button-close {
-    padding: 2%;
     color: white;
     background: red;
     width: fit-content;
@@ -522,40 +545,12 @@
     width: 10%;
 }
 
-.mudiny {
-    background: #7466F9;
-}
-
-.craily {
-    background: #BD5B49;
-}
-
-.rosely {
-    background: #F7B6A0;
-}
-
-.oxely {
-    background: #74A08F;
-}
-
-.finy {
-    background: #662C5C;
-}
-
-.selty {
-    background: #F8F9FA;
-}
-
-.darkly {
-    background: #212529;
-}
-
 .lovely-blue {
     background: rgb(53, 120, 246);
 }
 
 .selected {
-    background: rgb(53, 120, 246);
+    background: rgb(53, 120, 246) !important;
     color: white;
 }
 
@@ -574,6 +569,15 @@
 
 .v-coll {
     flex-direction: column;
+    align-items: center;
+}
+
+.v-coll>.block-card {
+    margin-bottom: 2%;
+}
+
+.v-coll>.block-card:last-child {
+    margin-bottom: 0;
 }
 
 .h-coll {
@@ -586,6 +590,105 @@
 
 .hideside {
     display: none !important;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.block-select,
+.block-input {
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Custom styling for selects */
+.block-select {
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23000" d="M6 8L0 0h12z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 10px;
+}
+
+/* Custom styling for input */
+.block-input {
+    background-color: #f5f5f5;
+}
+
+/* Hover effect for inputs and selects */
+.block-select:hover,
+.block-input:hover {
+    border-color: #333;
+}
+
+/* Focus effect for inputs and selects */
+.block-select:focus,
+.block-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* CSS for the chat messages */
+.block-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    background-color: white;
+    overflow-x: hidden !important;
+    max-height: calc(100vh - 300px) !important;
+}
+
+/* Individual chat message styles */
+.block-message-1,
+.block-message-2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 12px;
+    max-width: 75%;
+    background-color: #333; /* Darker background for all messages */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Darker shadow for a modern look */
+}
+
+.block-message-1 {
+    align-self: flex-start;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 20px;
+    background-color: #ff7f7f; /* Darker pink background for Yuna's messages */
+}
+
+.block-message-2 {
+    align-self: flex-end;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    background-color: #7faeff; /* Darker blue background for Yuki's messages */
+}
+
+/* Text styles */
+.block-message-1 pre,
+.block-message-2 pre {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #fff; /* White text for better contrast */
+    text-align: left;
+    font-family: Kawai-font;
+    white-space: pre-wrap; /* CSS3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 #docs h1,
@@ -676,12 +779,6 @@
         display: none;
     }
 
-    .topbar-o {
-        margin-bottom: 1%;
-        padding: 2% 4%;
-        width: 92%;
-    }
-
     .bottombar-o {
         flex-direction: row;
         justify-content: space-between;
@@ -699,6 +796,7 @@
 
     .coll-lo {
         flex-direction: column;
+        align-items: center;
     }
 
     .block-card {
@@ -763,10 +861,6 @@
     }
 
     .top-tab-block {
-        padding: 2%;
-    }
-
-    .top-tab-block-e {
         padding: 2%;
     }
 

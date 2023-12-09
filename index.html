@@ -8,18 +8,18 @@
   <link href="assets/fonts/kawai-font.woff" rel="stylesheet" type="application/font-woff">
   <title>Kawai</title>
   <link rel="stylesheet" href="assets/css/kawai.css">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
   <script src="assets/js/kawai.js" defer></script>
   <meta name="description" content="Kawai - is a native JavaScript framework and CSS library. It has no dependencies because it is written from scratch. You can use it to build your dream projects
   sooner, or to adapt your cross-platform web application">
   <meta name="keywords" content="HTML, CSS, framework, JavaScript">
-  <link rel="author" href="https://www.yukiarimo.tk" />
+  <link rel="author" href="https://www.yukiarimo.com" />
 </head>
 
 <body>
   <div class="sidebar-o desktop-only" id="sidebar">
     <!-- Introduction to Kawai -->
-    <div class="block-text-block text la">Menu</div>
+    <div class="block-text logo la">Menu</div>
 
     <!-- Sidebar Navigation -->
     <div class="side-tab-block">
@@ -48,7 +48,7 @@
           <div class="block-text lb">Kawai is a world-famous framework that empowers you to build amazing websites in no
             time. Its kawaii style brings a touch of playfulness and liveliness to your projects, making them memorable
             and enjoyable.</div>
-            <div class="block-toggle" onclick="toggleTheme()"></div>
+          <div class="block-toggle" onclick="toggleTheme()"></div>
         </div>
       </div>
 
@@ -58,8 +58,6 @@
           <div class="block-text lb">Enhance User Experience</div>
           <div class="block-text lc">Kawai's playful and cute elements make the user experience more enjoyable and
             memorable, enhancing the overall perception of your site.</div>
-          <br>
-          <div class="block-button" onclick="OpenPopup('test-modal-1')">Learn How</div>
         </div>
 
         <!-- Boost Brand Loyalty -->
@@ -113,96 +111,111 @@
       <div class="coll-lo">
         <div class="block-card el-4">
           <div class="block-text lb">Beautiful Aesthetics</div>
-          <div class="block-text lc">Kawai's design philosophy focuses on creating stunning aesthetics that captivate your
+          <div class="block-text lc">Kawai's design philosophy focuses on creating stunning aesthetics that captivate
+            your
             audience. We believe in the power of visual appeal to leave a lasting impression on your users.</div>
         </div>
 
         <div class="block-card el-4">
           <div class="block-text lb">Intuitive User Interfaces</div>
-          <div class="block-text lc">Our framework is built with intuitive user interfaces in mind. We want your users to
+          <div class="block-text lc">Our framework is built with intuitive user interfaces in mind. We want your users
+            to
             navigate your website effortlessly, ensuring a smooth and pleasant experience.</div>
         </div>
       </div>
 
       <div class="coll-lo">
         <div class="block-card el-4 shadow">
-    
+
           <!-- Chunk 3: Consistency Across Devices -->
           <div class="block-text lb">Consistency Across Devices</div>
-          <div class="block-text lc">Kawai ensures your website's design remains consistent across all devices. From desktop
+          <div class="block-text lc">Kawai ensures your website's design remains consistent across all devices. From
+            desktop
             computers to smartphones and tablets, your site will always look great.</div>
-          </div>
+        </div>
 
         <div class="block-card el-4 shadow">
           <!-- Chunk 4: Accessibility Matters -->
           <div class="block-text lb">Accessibility Matters</div>
-          <div class="block-text lc">We take accessibility seriously. Our design is accessible to all, making your website
+          <div class="block-text lc">We take accessibility seriously. Our design is accessible to all, making your
+            website
             inclusive and available to a broader audience.</div>
         </div>
       </div>
     </div>
 
-  <div class="tab-o" id="2">
-    <!-- Get Started with Kawai -->
-    <div class="coll-lo">
-      <div class="block-card el-9 shadow">
-        <div class="block-text la center">Get Started with Kawai</div>
+    <div class="tab-o" id="2">
+      <!-- Get Started with Kawai -->
+      <div class="coll-lo">
+        <div class="block-card el-9 shadow">
+          <div class="block-text la center">Get Started with Kawai</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Explore Documentation -->
-    <div class="coll-lo">
-      <div class="block-card el-9">
-        <div class="block-text la">Explore Our Documentation</div>
-        <div class="block-text lc">Kawai is your perfect choice for fast, lightweight, and user-friendly website
-          development. Explore our documentation and see why Kawai is the innovative platform of choice for web
-          developers.</div>
-        <div class="block-button" onclick="OpenLink('https://github.com/yukiarimo/kawai-framework/tree/main')">Explore Documentation</div>
+      <div class="coll-lo">
+        <div class="block-card el-9">
+          <div class="block-scroll block-chat" id="message-container">
+            <div class="block-message-2">
+              <pre>Hey, I've been looking into different JavaScript frameworks for our new project. Any suggestions?</pre>
+            </div>
+            <div class="block-message-1">
+              <pre>Well, there are several popular ones like React, Vue, and Angular. They all have their strengths and weaknesses. What are the project requirements?</pre>
+            </div>
+            <div class="block-message-2">
+              <pre>We need something easy to use, fast for website creation and a good community for support. I've been considering the Kawai Framework. It fits our needs.</pre>
+            </div>
+            <div class="block-message-1">
+              <pre>Kawai Framework? I've heard of it but never used it. What makes it stand out?</pre>
+            </div>
+            <div class="block-message-2">
+              <pre>It's a CSS and HTML library that simplifies website creation. It's designed to be user-friendly and efficient, perfect for our tight schedule. Plus, it has a growing community and good documentation.</pre>
+            </div>
+            <div class="block-message-1">
+              <pre>Sounds promising. Let's give the Kawai Framework a try, then!</pre>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="coll-lo">
-      <div class="block-card v-coll el-9" id="docs">
+      <!-- Explore Documentation -->
+      <div class="coll-lo">
+        <div class="block-card el-9">
+          <div class="block-text la">Explore Our Documentation</div>
+          <div class="block-text lc">Kawai is your perfect choice for fast, lightweight, and user-friendly website
+            development. Explore our documentation and see why Kawai is the innovative platform of choice for web
+            developers.</div>
+          <div class="block-button" onclick="OpenLink('https://github.com/yukiarimo/kawai-framework/tree/main')">Explore
+            Documentation</div>
+        </div>
+      </div>
 
+      <div class="coll-lo">
+        <div class="block-card v-coll el-9" id="docs">
+
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Popup Modal -->
-  <div class="block-popup" id="test-modal-1">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Learn How Kawai Works</h2>
-      </div>
-      <div class="modal-body">
-        <p>Discover the magic behind Kawai and learn how it can transform your web projects.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="block-button" onclick="ClosePopup('test-modal-1')">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+  <script src="assets/js/kawai-docs.js"></script>
+  <script>
+    fetch('https://raw.githubusercontent.com/yukiarimo/kawai-framework/main/README.md')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(text => {
 
-<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
-<script>
-fetch('https://raw.githubusercontent.com/yukiarimo/kawai-framework/main/README.md')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.text();
-  })
-  .then(text => {
-
-    var converter = new showdown.Converter(),
-    html      = converter.makeHtml(text);
-    document.getElementById('docs').innerHTML = html
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-
-</script>
+        var converter = new showdown.Converter(),
+          html = converter.makeHtml(text);
+        document.getElementById('docs').innerHTML = html
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  </script>
 </body>
+
 </html>
