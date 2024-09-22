@@ -103,6 +103,39 @@ function applyDarkModeStyles() {
     elementsToStyle.forEach(element => {
         element.style.color = 'white';
     });
+
+    // Custom styles added by user, should be added in the future releases
+
+    // Set the mode to dark for text inputs
+    const textInputs = document.querySelectorAll('.block-input');
+    textInputs.forEach(input => {
+        input.style.backgroundColor = 'rgb(32, 35, 37);';
+        input.style.color = 'white';
+    });
+
+    const textInputMsg = document.getElementById('input_text');
+    if (textInputMsg) {
+        textInputMsg.style.background = 'rgb(32, 35, 37);';
+        textInputMsg.style.color = 'white';
+    }
+
+    // Invert the icons
+    const icons = document.querySelectorAll('.block-icon');
+    icons.forEach(icon => {
+        icon.style.filter = 'invert(100%)';
+    });
+
+    // dark mode for side-tab-block-e
+    const sideTabBlocks = document.querySelectorAll('.side-tab-block-e');
+    sideTabBlocks.forEach(block => {
+        block.style.backgroundColor = 'rgb(36, 38, 38)';
+    });
+
+    // dark mode for .modal-content
+    const modalContent = document.querySelectorAll('.modal-content');
+    modalContent.forEach(content => {
+        content.style.backgroundColor = 'rgb(36, 38, 38)';
+    });
 }
 
 function enableDarkMode() {
@@ -160,11 +193,21 @@ function toggleTheme() {
     }
 }
 
+function getVisibleHeight() {
+    var elem = document.getElementById('message-container');
+
+    // chec if the element input-wrapper exists
+    if (document.querySelector('.input-wrapper')) {
+        elem.style.height = `calc(100% - ${document.querySelector('.topbar-o').offsetHeight}px - ${document.querySelector('.input-wrapper').offsetHeight}px)`;
+    }
+}
+
 // Function to set margin-top for .block-o dynamically
 function kawaiAutoScale() {
     var topbar = document.querySelector('.topbar-o');
     var sidebar = document.querySelector('.sidebar-o');
     var blocko = document.querySelector('.block-o');
+    var sendMessageContainer = document.getElementsByClassName('input-container')[0];
 
     if (topbar && sidebar && blocko) {
         var topbarHeight = topbar.offsetHeight;
@@ -178,6 +221,18 @@ function kawaiAutoScale() {
         blocko.style.marginLeft = `${sidebarWidth}px`;
         topbar.style.width = `calc(100% - ${sidebarWidth}px)`;
         topbar.style.marginLeft = `${sidebarWidth}px`;
+
+        // for sendMessageContainer make width 100% - sidebarWidth and margin-left sidebarWidth
+        if (sendMessageContainer) {
+            sendMessageContainer.style.width = `calc(100% - ${sidebarWidth}px)`;
+            sendMessageContainer.style.marginLeft = `${sidebarWidth}px`;
+        }
+
+        if (sidebar.classList.contains('showside')) {
+            sidebar.style.display = 'none';
+        }
+
+        getVisibleHeight();
     }
 }
 
