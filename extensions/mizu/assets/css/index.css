@@ -1,0 +1,92 @@
+.block-scroll {
+    height: 800px !important;
+    /* Set the height of the div */
+    max-height: 100% !important;
+}
+
+.action-container {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.comments-section p {
+    margin: 10px 0;
+    padding: 5px;
+    background-color: lightgray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-container>.block-card {
+    margin-bottom: 2%;
+}
+
+#loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 1);
+}
+
+#loading-spinner {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation: spin 1s linear infinite;
+}
+
+.spinner-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top-color: #3498db;
+    animation: spin 2s linear infinite, pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+#mizu-character {
+    font-size: 40px;
+    opacity: 0;
+    transform-origin: center;
+    animation: scaleUpDown 2s ease-in-out infinite;
+    color: white;
+}
+
+@keyframes scaleUpDown {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}

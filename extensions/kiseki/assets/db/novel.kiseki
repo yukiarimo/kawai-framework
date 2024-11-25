@@ -1,0 +1,126 @@
+var novel1 = {
+  "title": "Love Kizuna",
+  "author": "Yuki Arimo",
+  "branches": [
+    {
+      "name": "start",
+      "episodes": [
+        {
+          "name": "Ep 1 - A Mysterious Beginning",
+          "elements": [
+            {
+              "text": "Once upon a time..."
+            },
+            {
+              "text": "In this world..."
+            }
+          ]
+        },
+        {
+          "name": "Ep 2 - Unexpected Encounters",
+          "elements": [
+            {
+              "text": "Hi there. Kizuna's voice chimed, the sound like a melodic echo in the tranquil surroundings. Their eyes met, and in that instant, a bond began to form."
+            },
+            {
+              "choices": [
+                {
+                  "choice": "I love you Kizuna",
+                  "target_branch": "love_dialogue_1"
+                },
+                {
+                  "choice": "Reject Kizuna",
+                  "target_branch": "rejection"
+                },
+                {
+                  "choice": "Be my girlfriend",
+                  "target_branch": "love_dialogue_2"
+                },
+                {
+                  "choice": "We break up",
+                  "target_branch": "end"
+                },
+                {
+                  "choice": "Ignore Kizuna",
+                  "target_branch": "move"
+                }
+              ]
+            },
+            {
+              "text": "Kizuna's eyes widened, and their cheeks flushed a deep crimson. They were speechless, as if the words had been stolen from their lips."
+            }
+          ]
+        }
+      ],
+      "currentEpisodeIndex": 0
+    },
+    {
+      "name": "love_dialogue_1",
+      "episodes": [
+        {
+          "name": "Ep love - A Mysterious Beginning",
+          "elements": [
+            {
+              "text": "Their heart raced, emotions intertwining like ivy as they mustered the courage to speak."
+            },
+            {
+              "text": "I... I love you, Kizuna. The words hung in the air, delicate and charged, as if the world itself held its breath."
+            }
+          ]
+        }
+      ],
+      "currentEpisodeIndex": 0
+    },
+    {
+      "name": "rejection",
+      "episodes": [
+        {
+          "name": "Ep 3 - A love story",
+          "elements": [
+            {
+              "text": "The moment was fragile, like a delicate petal caught in the wind."
+            },
+            {
+              "text": "I'm sorry, Kizuna. I can't reciprocate the way you feel, they replied gently, hoping their honesty wouldn't shatter the connection they had begun to weave."
+            }
+          ]
+        }
+      ],
+      "currentEpisodeIndex": 0
+    },
+    {
+      "name": "love_dialogue_2",
+      "episodes": [
+        {
+          "name": "Ep 4 - Unspoken Longings",
+          "elements": [
+            {
+              "text": "The silence between them felt heavy with unspoken words, a tapestry of curiosity and longing."
+            },
+            {
+              "text": "They wished they could express their feelings, but fear held them back, like a hesitant traveler on an unfamiliar path."
+            }
+          ]
+        }
+      ],
+      "currentEpisodeIndex": 0
+    },
+    {
+      "name": "end",
+      "episodes": [
+        {
+          "name": "Ep 4 - Unspoken Longings",
+          "elements": [
+            {
+              "text": "The silence between them felt heavy with unspoken words, a tapestry of curiosity and longing."
+            },
+            {
+              "text": "They wished they could express their feelings, but fear held them back, like a hesitant traveler on an unfamiliar path."
+            }
+          ]
+        }
+      ],
+      "currentEpisodeIndex": 0
+    }
+  ],
+}

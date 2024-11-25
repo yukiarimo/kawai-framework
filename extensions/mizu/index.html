@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <link href="https://cdn.jsdelivr.net/gh/yukiarimo/kawai-framework@main/assets/fonts/kawai-font.woff"
+        rel="stylesheet" type="application/font-woff">
+    <title>水 Mizu 水</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yukiarimo/kawai-framework@main/assets/css/kawai.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script src="https://cdn.jsdelivr.net/gh/yukiarimo/kawai-framework@main/assets/js/kawai.js" defer></script>
+    <script src="assets/js/index.js" defer></script>
+    <meta name="description" content="Mizu - is a way to knowleadge">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <link rel="author" href="https://www.yukiarimo.tk" />
+</head>
+
+<body>
+    <!-- Topbar with Kawai Logo -->
+    <div class="topbar-o">
+        <div class=""></div>
+        <div class="la block-text">水 Mizu 水</div>
+        <div class=""></div>
+    </div>
+
+    <div id="loading-container">
+        <div id="loading-spinner">
+            <div class="spinner-circle"></div>
+        </div>
+        <br>
+        <div id="mizu-character">水</div>
+    </div>
+
+    <div class="block-o">
+        <div class="coll-lo">
+            <div class="block-card el-9">
+                <div class="block-text la">Welcome to Mizu</div>
+                <div class="block-text lb">Your path to world knowleadge.</div>
+                <button class="block-button" onclick="OpenPopup('mode')">Mode</button>
+            </div>
+        </div>
+
+        <div class="coll-lo">
+            <!-- Login Form -->
+            <form class="block-form el-4" id="login-form">
+                <input class="block-input" type="text" id="username" placeholder="Username">
+                <input class="block-input" type="password" id="password" placeholder="Password">
+                <button class="block-button" id="login">Login</button>
+                <button class="block-button" id="reg">Register</button>
+            </form>
+
+            <!-- Profile Block -->
+            <div class="block-card el-4" id="profile-block">
+                <div class="profile-info" id="info">
+                    <!-- Display user profile information here -->
+                </div>
+                <button class="block-button" id="edit">Edit Account</button>
+                <button class="block-button" id="delete">Delete Account</button>
+                <button class="block-button" id="logout">Log out</button>
+            </div>
+        </div>
+
+        <div class="coll-lo">
+            <!-- Post Form -->
+            <form class="block-form el-9" id="post-form">
+                <textarea class="block-input" id="post-text" placeholder="Post text"></textarea>
+                <div class="action-container">
+                    <button class="block-button" id="post">Post</button>
+                    <button class="block-button" onclick="askMizu(post);" id="ask">Ask Mizu</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="coll-lo">
+            <div class="block-card el-9">
+                <div class="block-text la">Posts</div>
+
+                <div class="block-scroll block-card el-9" id="post-container"></div>
+            </div>
+        </div>
+    </div>
+    <div class="block-popup" id="mode">
+        <h1>Mode</h1>
+        <div class="block-toggle" onclick="toggleTheme()"></div>
+    </div>
+
+    <script>
+        // Simulate a delay for loading
+        setTimeout(() => {
+            document.getElementById('loading-container').style.display = 'none';
+        }, 1000);
+    </script>
+</body>
+
+</html>

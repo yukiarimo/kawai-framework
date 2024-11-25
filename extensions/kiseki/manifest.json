@@ -1,0 +1,18 @@
+{
+    "short_name": "Kiseki",
+    "name": "Kiseki",
+    "icons": [{
+        "src": "http://www.kiseki.games/assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b",
+        "type": "image/png",
+        "sizes": "1000x1000",
+        "purpose": "any maskable"
+    }, {
+        "src": "http://www.kiseki.games/assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b",
+        "type": "image/png",
+        "sizes": "1000x1000",
+        "purpose": "any maskable"
+    }],
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "orientation": "landscape"
+}

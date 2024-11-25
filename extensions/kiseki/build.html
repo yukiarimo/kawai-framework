@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Build - Kiseki</title>
+    <link rel="canonical" href="http://www.kiseki.games/index.html">
+    <meta property="og:url" content="http://www.kiseki.games/index.html">
+    <meta name="twitter:description" content="VN Builder">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Kiseki">
+    <meta name="description" content="VN builder">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://www.kiseki.games/assets/img/Kiseki.png">
+    <meta name="twitter:image" content="http://www.kiseki.games/assets/img/Kiseki.png">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/yukiarimo/kawai-framework@main/assets/css/kawai.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <script src="https://cdn.jsdelivr.net/gh/yukiarimo/kawai-framework@main/assets/js/kawai.js" defer></script>
+    <meta name="description" content="Kiseki is VN builder">
+    <meta name="keywords" content="HTML, CSS, framework, JavaScript, Kiseki">
+    <link rel="author" href="https://www.yukiarimo.com" />
+    <link rel="stylesheet" href="assets/fonts/kawai-font.woff">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Kiseki",
+            "url": "http://www.kiseki.games"
+        }
+    </script>
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b"
+        media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b"
+        media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Kiseki.png?h=618022cef8a5db3b7ec90846e5da0e8b">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=97380e22c8933e9aa79cbc2390b9f15a">
+    <link rel="manifest" href="manifest.json?h=4803971e045b35ca2f93cfe8d168cf7d">
+    <link rel="stylesheet" href="assets/css/Nunito.css?h=20df14c73f5c7c9d68f0ad5c2da98279">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css?h=d98553506d4393860db8a633e4842ead">
+</head>
+
+<body data-bs-theme="dark" id="page-top">
+    <div id="wrapper">
+        <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark">
+            <div class="container-fluid d-flex flex-column p-0"><a
+                    class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Kiseki</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i
+                                class="fas fa-window-maximize"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="build.html"><i
+                                class="fas fa-user"></i><span>Builder</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="create.html"><i
+                                class="fas fa-user"></i><span>Create</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
+                        id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="block-o">
+                        <div class="coll-lo">
+                            <div class="block-card el-9">
+                                <div class="block-text la">Kiseki</div>
+                            </div>
+                        </div>
+
+                        <div class="coll-lo">
+                            <div class="block-card el-4">
+                                <div class="block-text la">Story controls</div>
+                                <button class="block-button" id="edit-story-button"">Edit Story</button>
+                                <button class=" block-button" id="assets-button">Assets</button>
+                                <button class="block-button">Extensions</button>
+                                <button class="block-button" onclick="OpenLink('/')">Exit</button>
+                            </div>
+
+                            <div class="block-card el-4">
+                                <div class="block-text la">Build controls</div>
+                                <button class="block-button" id="create-bundle-button">Build Game</button>
+                                <button class="block-button">Import Assets</button>
+                                <input type="file" id="bundleFileInput" accept=".kawaibundle">
+                                <button class="block-button">Settings</button>
+                                <button class="block-button" onclick="localStorage.clear()">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-popup" id="story-editor-popup">
+                        <div class="modal-content">
+                            <div class="modal-header">Edit Story</div>
+                            <div class="modal-body">
+                                <textarea id="story-textarea" class="block-text" rows="6"
+                                    placeholder="Enter your story here..."></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="save-story-button" class="block-button">Save</button>
+                                <button id="close-story-popup" class="block-button">Close</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-popup popup" id="assets-popup">
+                        <div class="modal-content">
+                            <div class="modal-header">Loaded Assets</div>
+                            <div class="modal-body">
+                                <div class="popup-content">
+                                    <span class="popup-close" id="assets-close">&#10006;</span>
+                                    <h2>Loaded Assets</h2>
+                                    <ul id="asset-list"></ul>
+                                    <input type="file" id="file-input" accept="image/*" multiple>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="save-story-button" class="block-button">Save</button>
+                                <button id="close-story-popup" class="block-button">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="heart-particles"></div>
+
+    <script src="assets/js/build.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=e55bde7d6e36ebf17ba0b8c1e80e4065"></script>
+    <script src="assets/js/theme.js?h=79f403485707cf2617c5bc5a2d386bb0"></script>
+</body>
+
+</html>

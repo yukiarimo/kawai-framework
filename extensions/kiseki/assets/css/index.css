@@ -1,0 +1,140 @@
+/* Add a girly and cute font */
+body {
+    background-color: #fce4ec; /* Light pink */
+}
+
+/* Update block-popup styling */
+.block-popup {
+    width: 100%; /* Cover the whole page */
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(248, 187, 208, 0.8); /* Semi-transparent light pink */
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+textarea {
+    width: 98% !important;
+}
+
+/* Update parsed-story container styling */
+#parsed-story {
+    font-family: "Comic Sans MS", cursive; /* Cute and playful font */
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ff80ab; /* Bright pink */
+    text-align: center;
+    cursor: pointer;
+    padding: 20px;
+    background-color: #ffd4e5; /* Lighter pink */
+    border-radius: 15px;
+    margin: 10px;
+    width: 80%;
+}
+
+/* Hover effect for paragraphs */
+#parsed-story:hover {
+    background-color: #ffecf5; /* Even lighter pink */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Styling for the 'Next' button */
+#parsed-story:after {
+    content: "→";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #ff80ab;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Hover effect for 'Next' button */
+#parsed-story:after:hover {
+    transform: scale(1.1);
+    color: #ff4081; /* Darker pink */
+}
+
+/* Update block-button styling */
+.block-button {
+    background-color: #ff80ab; /* Pink */
+    color: white;
+    border: none;
+    border-radius: 15px; /* More rounded corners */
+    padding: 12px 24px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for buttons */
+.block-button:hover {
+    background-color: #ff4081; /* Darker pink on hover */
+    transform: scale(1.05);
+}
+
+/* Update block-card styling */
+.block-card {
+    background-color: #ffffff; /* White */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+}
+
+/* Update block-text.la styling */
+.block-text.la {
+    font-size: 48px;
+    color: #ff80ab; /* Pink */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Add styles for the heart particles */
+.heart-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Ensure the particles don't interfere with clicking */
+    z-index: 9999; /* Place above other elements */
+}
+
+/* Styling for the heart animation */
+@keyframes heart-particle-fall {
+    to {
+        transform: translateY(100vh) rotate(720deg) scale(0.2);
+        opacity: 0;
+    }
+}
+
+/* Heart particle styling */
+.heart-particle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ff80ab; /* Pink */
+    clip-path: polygon(50% 0%, 100% 38%, 75% 100%, 50% 75%, 25% 100%, 0% 38%);
+    animation: heart-particle-fall 3s ease-in;
+}
+
+/* Improve centering for elements */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Horizontal layout for menu items */
+.block-card.h-coll.el-4 {
+    flex-direction: row;
+}
