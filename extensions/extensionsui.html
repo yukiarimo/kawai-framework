@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+  <link href="assets/fonts/kawai-font.woff" rel="stylesheet" type="application/font-woff">
+  <title>Kawai</title>
+  <link rel="stylesheet" href="assets/css/kawai.css">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <script src="assets/js/kawai.js" defer></script>
+  <!-- Removed extensions.js script -->
+  <meta name="description" content="Kawai - is a native JavaScript framework and CSS library. It has no dependencies because it is written from scratch. You can use it to build your dream projects
+  sooner, or to adapt your cross-platform web application">
+  <meta name="keywords" content="HTML, CSS, framework, JavaScript">
+  <link rel="author" href="https://www.yukiarimo.com" />
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('kawai-container');
+      container.innerHTML = `
+        <div class="kawai-extensions">
+          <div class="kawai-creator">
+            <h3>Create New Bundle</h3>
+            <form id="kawaiCreateForm">
+              <input type="text" name="name" placeholder="Bundle Name" required>
+              <input type="text" name="version" placeholder="Version" required>
+              <input type="text" name="author" placeholder="Author" required>
+              <input type="file" name="icon" accept="image/*">
+              <textarea name="script" placeholder="Enter your JavaScript code" required></textarea>
+              <div class="asset-drop-zone" id="assetDropZone">
+                Drop assets here
+              </div>
+              <button type="submit">Create Bundle</button>
+            </form>
+          </div>
+          <div class="kawai-loader">
+            <h3>Load Bundle</h3>
+            <input type="file" id="bundleLoader" accept=".kawaibundle">
+          </div>
+          <div class="kawai-list">
+            <h3>Installed Bundles</h3>
+            <div id="bundleList"></div>
+          </div>
+        </div>
+      `;
+
+      const extensions = new KawaiExtensions();
+
+      // Handle form submission
+      const form = container.querySelector('#kawaiCreateForm');
+      const dropZone = container.querySelector('#assetDropZone');
+      const bundleLoader = container.querySelector('#bundleLoader');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        
+        // Read icon file if provided
+        const iconFile = formData.get('icon');
+        let icon = null;
+        if (iconFile.size > 0) {
+          icon = await fileToDataUrl(iconFile);
+        }
+
+        const bundle = await extensions.createBundle({
+          name: formData.get('name'),
+          version: formData.get('version'),
+          author: formData.get('author'),
+          icon: icon,
+          script: formData.get('script'),
+          assets: {} // Assets handled separately through drop zone
+        });
+
+        downloadBundle(bundle);
+        updateBundleList();
+        form.reset();
+      });
+
+      // Handle bundle loading
+      bundleLoader.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          await extensions.loadBundleFile(file);
+          updateBundleList();
+        }
+      });
+
+      // Handle asset drop zone
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      });
+
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+      });
+
+      dropZone.addEventListener('drop', async (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        
+        const files = Array.from(e.dataTransfer.files);
+        for (const file of files) {
+          const dataUrl = await fileToDataUrl(file);
+          // Handle the asset (in a real implementation, you'd want to store these)
+          console.log(`Asset loaded: ${file.name}`, dataUrl);
+        }
+      });
+
+      function updateBundleList() {
+        const bundleList = container.querySelector('#bundleList');
+        const bundles = extensions.getBundles();
+
+        bundleList.innerHTML = bundles.map(bundle => `
+          <div class="bundle-item">
+            <img src="${bundle.icon || '#'}" alt="${bundle.name}" width="32">
+            <span>${bundle.name} v${bundle.version}</span>
+            <button onclick="toggleBundle('${bundle.id}')">${bundle.active ? 'Deactivate' : 'Activate'}</button>
+          </div>
+        `).join('');
+      }
+
+      async function fileToDataUrl(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function downloadBundle(bundle) {
+        const blob = bundle.toBlob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${bundle.name}.kawaibundle`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Expose toggleBundle to the global scope
+      window.toggleBundle = async function(id) {
+        const bundle = extensions.bundles.get(id);
+        if (bundle) {
+          if (bundle.active) {
+            bundle.deactivate();
+          } else {
+            await bundle.activate();
+          }
+          updateBundleList();
+        }
+      }
+    });
+  </script>
+  <style>
+    .kawai-extensions {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .kawai-creator form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .asset-drop-zone {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .asset-drop-zone.dragover {
+      background-color: #f0f0f0;
+      border-color: #666;
+    }
+
+    .bundle-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #eee;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="kawai-container"></div>
+</body>
+
+</html>

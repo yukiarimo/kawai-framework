@@ -3,247 +3,321 @@
     KAWAI FRAMEWORK
 */
 
-const toggleButton = document.getElementsByClassName('toggle-menu-block')[0]
-const navbarLinks = document.getElementsByClassName('top-tab-block')[0]
-const addclosers = document.querySelectorAll('.block-popup');
-const modeElementList = '.block-text, p, a, ul, li, ol, h1, h2, h3, h4, h5, h6, .side-tab-block-e, .block-input, label, .block-list-e, .block-dropdown-tab'
+const navbarLinks = document.querySelector('.top-tab-block');
+const addClosers = document.querySelectorAll('.block-popup');
+const modeElementList = '.block-text, p, a, ul, li, ol, h1, h2, h3, h4, h5, h6, .side-tab-block-e, .block-input, label, .block-list-e, .block-dropdown-tab';
 const sidebar = document.getElementById('sidebar');
 const blocko = document.querySelector('.block-o');
+const sendMessageContainer = document.querySelector('.input-container');
+const topbar = document.querySelector('.topbar-o');
 
-// Event listener for the toggle button
+// Toggle Sidebar
 function toggleSidebar() {
-    sidebar.classList.toggle('showside');
-    sidebar.classList.toggle('hideside');
-    blocko.classList.toggle('uside');
+    if (sidebar) {
+        sidebar.classList.toggle('showside');
+        sidebar.classList.toggle('hideside');
+    }
+    if (blocko) {
+        blocko.classList.toggle('uside');
+    }
     kawaiAutoScale();
-}
+};
 
-function PopupClose() {
-    const howmanyclosers = document.querySelectorAll('.block-button-close');
-    if (howmanyclosers.length) {
-        for (let step = 0; step < howmanyclosers.length; step++) {
-            const element = howmanyclosers[step].parentElement;
-            element.style.display = 'none'
-        }
+// Close Popups
+document.querySelectorAll('.block-button-close').forEach(btn => {
+    if (btn.parentElement) {
+        btn.parentElement.style.display = 'none';
     }
-}
+});
 
-function OpenLink(getlink) {
-    window.open(getlink, '_self');
-}
+// Open Link
+const OpenLink = link => window.open(link, '_self');
 
-function OpenPopup(getid) {
-    document.getElementById(getid).style.display = 'flex';
-}
+// Open Popup
+const OpenPopup = id => document.getElementById(id).style.display = 'flex';
 
-function OpenTablo(tablo) {
-    var tablos = document.querySelectorAll('.block-dropdown-tab-lo');
+// Toggle Dropdown Tab
+const OpenTablo = tablo => {
+    document.querySelectorAll('.block-dropdown-tab-lo').forEach(el => {
+        el.style.display = el.id === tablo && getComputedStyle(el).display !== 'flex' ? 'flex' : 'none';
+    });
+};
 
-    if (tablos.length) {
-        for (let step = 0; step < tablos.length; step++) {
-            var element = tablos[step];
-            element.style = "display: none";
-        }
-    }
+// Tab Selection
+document.querySelectorAll(".side-tab-block-e").forEach(el => {
+    el.addEventListener('click', () => {
+        document.querySelectorAll(".side-tab-block-e").forEach(e => e.classList.remove('selected'));
+        el.classList.add('selected');
+    });
+});
 
-    for (let step = 0; step < tablos.length; step++) {
-        let element = tablos[step];
-        if (element.get)
-            element.style = "display: none";
-    }
+// Open Tab
+const OpenTab = tab => {
+    document.querySelectorAll('.tab-o').forEach(el => el.style.display = 'none');
+    document.getElementById(tab).style.display = 'flex';
+};
 
-    if (getComputedStyle(document.getElementById(tablo)).display == 'flex') {
-        document.getElementById(tablo).style = "display: none"
-    } else if (getComputedStyle(document.getElementById(tablo)).display == 'none') {
-        document.getElementById(tablo).style = "display: flex"
-    }
-}
+// Apply Dark Mode Styles
+const applyDarkModeStyles = () => {
+    if (document.body && topbar && sidebar) {
+        const darkStyles = {
+            'backgroundColor': 'rgb(30, 30, 30)',
+            'color': 'white'
+        };
+        document.body.style.backgroundColor = darkStyles.backgroundColor;
+        topbar.style.color = darkStyles.color;
+        sidebar.style.backgroundColor = 'rgb(36, 38, 38)';
 
-document.querySelectorAll(".side-tab-block-e").forEach(function (element) {
-    element.addEventListener('click', function () {
-        document.querySelectorAll(".side-tab-block-e").forEach(function (e) {
-            e.classList.remove('selected');
+        document.querySelectorAll('.block-card, .block-dropdown-tab-lo, .modal-content, .side-tab-block-e').forEach(el => {
+            if (el) {
+                el.style.backgroundColor = 'rgb(36, 38, 38)';
+            }
         });
-        this.classList.add('selected')
-    })
-})
 
-function highlightSelectedTab() {
-    document.getElementsByClassName
-}
+        document.querySelectorAll('.block-chat').forEach(chat => {
+            if (chat) {
+                chat.style.background = '#1a1a1a';
+            }
+        });
 
-function OpenTab(gettab) {
+        document.querySelectorAll(modeElementList).forEach(el => {
+            if (el) {
+                el.style.color = darkStyles.color;
+            }
+        });
 
-    const howmanytabs = document.querySelectorAll('.tab-o');
-    if (howmanytabs.length) {
-        for (let step = 0; step < howmanytabs.length; step++) {
-            const element = howmanytabs[step];
-            element.style.display = 'none'
+        document.querySelectorAll('.block-input').forEach(input => {
+            if (input) {
+                input.style.backgroundColor = 'rgb(32, 35, 37)';
+                input.style.color = darkStyles.color;
+            }
+        });
+
+        const textInputMsg = document.getElementById('input_text');
+        if (textInputMsg) {
+            textInputMsg.style.background = 'rgb(32, 35, 37)';
+            textInputMsg.style.color = darkStyles.color;
         }
+
+        document.querySelectorAll('.block-icon').forEach(icon => {
+            if (icon) {
+                icon.style.filter = 'invert(100%)';
+            }
+        });
     }
-    document.getElementById(gettab).style.display = 'flex';
-}
+};
 
-function applyDarkModeStyles() {
-    document.body.style.backgroundColor = "rgb(30, 30, 30)";
-    document.querySelector('.topbar-o').style.color = 'white';
-    document.querySelector('.sidebar-o').style.backgroundColor = 'rgb(36, 38, 38)';
-
-    const blockCards = document.querySelectorAll('.block-card');
-    blockCards.forEach(card => {
-        card.style.background = 'rgb(36, 38, 38)';
-    });
-
-    const blockChats = document.querySelectorAll('.block-chat')
-    blockChats.forEach(chat => {
-        chat.style.background = '#1a1a1a';
-    });
-
-    const elementsToStyle = document.querySelectorAll(modeElementList);
-    elementsToStyle.forEach(element => {
-        element.style.color = 'white';
-    });
-
-    // Custom styles added by user, should be added in the future releases
-
-    // Set the mode to dark for text inputs
-    const textInputs = document.querySelectorAll('.block-input');
-    textInputs.forEach(input => {
-        input.style.backgroundColor = 'rgb(32, 35, 37);';
-        input.style.color = 'white';
-    });
-
-    const textInputMsg = document.getElementById('input_text');
-    if (textInputMsg) {
-        textInputMsg.style.background = 'rgb(32, 35, 37);';
-        textInputMsg.style.color = 'white';
-    }
-
-    // Invert the icons
-    const icons = document.querySelectorAll('.block-icon');
-    icons.forEach(icon => {
-        icon.style.filter = 'invert(100%)';
-    });
-
-    // dark mode for side-tab-block-e
-    const sideTabBlocks = document.querySelectorAll('.side-tab-block-e');
-    sideTabBlocks.forEach(block => {
-        block.style.backgroundColor = 'rgb(36, 38, 38)';
-    });
-
-    // dark mode for .modal-content
-    const modalContent = document.querySelectorAll('.modal-content');
-    modalContent.forEach(content => {
-        content.style.backgroundColor = 'rgb(36, 38, 38)';
-    });
-}
-
-function enableDarkMode() {
+// Enable Dark Mode
+const enableDarkMode = () => {
     applyDarkModeStyles();
     localStorage.setItem('mode', 'dark');
-}
+};
 
-function enableLightMode() {
-    // Reset styles to the default light mode styles
-    document.body.style.backgroundColor = '';
-
-    const topbar = document.querySelector('.topbar-o');
-    if (topbar) {
+// Enable Light Mode
+const enableLightMode = () => {
+    if (document.body && topbar && sidebar) {
+        document.body.style.backgroundColor = '';
         topbar.style.color = '';
-    }
-
-    const sidebar = document.querySelector('.sidebar-o');
-    if (sidebar) {
         sidebar.style.backgroundColor = '';
+        document.querySelectorAll('.block-card, .block-dropdown-tab-lo, .modal-content, .side-tab-block-e').forEach(el => {
+            if (el) {
+                el.style.backgroundColor = '';
+            }
+        });
+
+        document.querySelectorAll('.block-chat').forEach(chat => {
+            if (chat) {
+                chat.style.background = '';
+            }
+        });
+
+        document.querySelectorAll(modeElementList).forEach(el => {
+            if (el) {
+                el.style.color = '';
+            }
+        });
+
+        document.querySelectorAll('.block-input').forEach(input => {
+            if (input) {
+                input.style.backgroundColor = '';
+                input.style.color = '';
+            }
+        });
+
+        const textInputMsg = document.getElementById('input_text');
+        if (textInputMsg) {
+            textInputMsg.style.background = '';
+            textInputMsg.style.color = '';
+        }
+
+        document.querySelectorAll('.block-icon').forEach(icon => {
+            if (icon) {
+                icon.style.filter = '';
+            }
+        });
+
+        localStorage.setItem('mode', 'light');
     }
+};
 
-    const blockCards = document.querySelectorAll('.block-card');
-    blockCards.forEach(card => {
-        card.style.background = '';
-    });
+// Initialize Theme
+const initializeTheme = () => {
+    localStorage.getItem('mode') === 'dark' ? enableDarkMode() : enableLightMode();
+};
 
-    const blockChats = document.querySelectorAll('.block-chat')
-    blockChats.forEach(chat => {
-        chat.style.background = '';
-    });
+// Toggle Theme
+const toggleTheme = () => {
+    localStorage.getItem('mode') === 'dark' ? enableLightMode() : enableDarkMode();
+};
 
-    const elementsToStyle = document.querySelectorAll(modeElementList);
-    elementsToStyle.forEach(element => {
-        element.style.color = '';
-    });
-
-    localStorage.setItem('mode', 'light');
-}
-
-function initializeTheme() {
-    const storedMode = localStorage.getItem('mode');
-    if (storedMode === 'dark') {
-        enableDarkMode();
-    } else {
-        enableLightMode();
+// Adjust Visible Height
+const getVisibleHeight = () => {
+    const msgContainer = document.getElementById('message-container');
+    const inputWrapper = document.querySelector('.input-wrapper');
+    if (msgContainer && inputWrapper && topbar) {
+        msgContainer.style.height = `calc(100% - ${topbar.offsetHeight}px - ${inputWrapper.offsetHeight}px)`;
     }
-}
+};
 
-function toggleTheme() {
-    const currentMode = localStorage.getItem('mode');
-    if (currentMode === 'dark') {
-        enableLightMode();
-    } else {
-        enableDarkMode();
-    }
-}
-
-function getVisibleHeight() {
-    var elem = document.getElementById('message-container');
-
-    // chec if the element input-wrapper exists
-    if (document.querySelector('.input-wrapper')) {
-        elem.style.height = `calc(100% - ${document.querySelector('.topbar-o').offsetHeight}px - ${document.querySelector('.input-wrapper').offsetHeight}px)`;
-    }
-}
-
-// Function to set margin-top for .block-o dynamically
-function kawaiAutoScale() {
-    var topbar = document.querySelector('.topbar-o');
-    var sidebar = document.querySelector('.sidebar-o');
-    var blocko = document.querySelector('.block-o');
-    var sendMessageContainer = document.getElementsByClassName('input-container')[0];
-
+// Auto Scale Function
+const kawaiAutoScale = () => {
     if (topbar && sidebar && blocko) {
-        var topbarHeight = topbar.offsetHeight;
-        var sidebarWidth = sidebar.offsetWidth;
-        var sidebarWidth = sidebar.offsetWidth;
-        var additionalMargin = 20;
-
-        // Set margin-top for .block-o
-        blocko.style.marginTop = `calc(${topbarHeight}px + ${additionalMargin}px)`;
+        const additionalMargin = 20;
+        const sidebarWidth = sidebar.offsetWidth;
+        blocko.style.marginTop = `calc(${topbar.offsetHeight}px + ${additionalMargin}px)`;
         blocko.style.width = `calc(100% - ${sidebarWidth}px)`;
         blocko.style.marginLeft = `${sidebarWidth}px`;
         topbar.style.width = `calc(100% - ${sidebarWidth}px)`;
         topbar.style.marginLeft = `${sidebarWidth}px`;
-
-        // for sendMessageContainer make width 100% - sidebarWidth and margin-left sidebarWidth
         if (sendMessageContainer) {
             sendMessageContainer.style.width = `calc(100% - ${sidebarWidth}px)`;
             sendMessageContainer.style.marginLeft = `${sidebarWidth}px`;
         }
+        if (sidebar.classList.contains('showside')) sidebar.style.display = 'none';
+        getVisibleHeight();
+    }
+};
 
-        if (sidebar.classList.contains('showside')) {
-            sidebar.style.display = 'none';
+// Event Listeners
+window.addEventListener('load', kawaiAutoScale);
+window.addEventListener('resize', kawaiAutoScale);
+setTimeout(kawaiAutoScale, 10);
+
+// kawai-extensions
+class KawaiBundle {
+    constructor(config) {
+        this.id = KawaiBundle.generateId();
+        this.name = config.name || 'Unnamed Bundle';
+        this.version = config.version || '1.0.0';
+        this.author = config.author || 'Anonymous';
+        this.icon = config.icon || null;
+        this.script = config.script || '';
+        this.assets = config.assets || {};
+        this.active = false;
+        this._scriptElement = null;
+    }
+
+    static generateId() {
+        return 'kb_' + Math.random().toString(36).substring(2, 9);
+    }
+
+    async activate() {
+        if (this.active) return;
+        
+        // Process script and replace asset references
+        let processedScript = this.script;
+        for (const [assetId, assetData] of Object.entries(this.assets)) {
+            const pattern = new RegExp(`&asset:${assetId}&`, 'g');
+            processedScript = processedScript.replace(pattern, assetData);
         }
 
-        getVisibleHeight();
+        // Create script element
+        this._scriptElement = document.createElement('script');
+        this._scriptElement.id = this.id;
+        this._scriptElement.textContent = `
+            (function() {
+                const bundle = ${JSON.stringify({
+                    id: this.id,
+                    name: this.name,
+                    version: this.version,
+                    author: this.author
+                })};
+                ${processedScript}
+            })();
+        `;
+
+        document.head.appendChild(this._scriptElement);
+        this.active = true;
+    }
+
+    deactivate() {
+        if (!this.active) return;
+        if (this._scriptElement) {
+            this._scriptElement.remove();
+            this._scriptElement = null;
+        }
+        this.active = false;
+    }
+
+    toBlob() {
+        const bundleData = {
+            name: this.name,
+            version: this.version,
+            author: this.author,
+            icon: this.icon,
+            script: this.script,
+            assets: this.assets
+        };
+        return new Blob([JSON.stringify(bundleData)], { type: 'application/json' });
+    }
+
+    static async fromBlob(blob) {
+        const text = await blob.text();
+        const data = JSON.parse(text);
+        return new KawaiBundle(data);
     }
 }
 
-// Call the function on window load and resize
-window.addEventListener('load', kawaiAutoScale);
-window.addEventListener('resize', kawaiAutoScale);
+class KawaiExtensions {
+    constructor() {
+        this.bundles = new Map();
+    }
 
-// Call this function to initialize the theme when the page loads
-initializeTheme();
+    async createBundle(config) {
+        const bundle = new KawaiBundle(config);
+        this.bundles.set(bundle.id, bundle);
+        return bundle;
+    }
 
-/*
-    COPYRIGHT BY YUKI ARIMO
-    KAWAI FRAMEWORK
-*/
+    async loadBundleFile(file) {
+        try {
+            const bundle = await KawaiBundle.fromBlob(file);
+            this.bundles.set(bundle.id, bundle);
+            return bundle;
+        } catch (error) {
+            console.error('Failed to load bundle:', error);
+            return null;
+        }
+    }
+
+    activateBundle(id) {
+        const bundle = this.bundles.get(id);
+        if (bundle) {
+            return bundle.activate();
+        }
+        return false;
+    }
+
+    deactivateBundle(id) {
+        const bundle = this.bundles.get(id);
+        if (bundle) {
+            bundle.deactivate();
+            return true;
+        }
+        return false;
+    }
+
+    getBundles() {
+        return Array.from(this.bundles.values());
+    }
+}
